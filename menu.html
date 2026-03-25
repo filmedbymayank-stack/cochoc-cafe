@@ -6,7 +6,6 @@
   <title>Drink Menu</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
-
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -65,7 +64,7 @@
   <div id="coffee">
 
     <div class="flex gap-3 items-center">
-      <img src="Iced.png" class="w-16 h-16 rounded-xl object-cover"/>
+      <img src="coffee1.png" class="w-16 h-16 rounded-xl object-cover"/>
       <div class="flex-1">
         <h3 class="font-semibold">Iced Americano</h3>
         <p class="text-xs opacity-70">Double espresso and water</p>
@@ -75,7 +74,7 @@
     </div>
 
     <div class="flex gap-3 items-center">
-      <img src="Hot.png" class="w-16 h-16 rounded-xl object-cover"/>
+      <img src="coffee2.png" class="w-16 h-16 rounded-xl object-cover"/>
       <div class="flex-1">
         <h3 class="font-semibold">Iced Coffee Sweet</h3>
         <p class="text-xs opacity-70">With milk & cream</p>
@@ -90,7 +89,7 @@
   <div id="chocolate" class="hidden">
 
     <div class="flex gap-3 items-center">
-      <img src="Ch1.png" class="w-16 h-16 rounded-xl object-cover"/>
+      <img src="choco1.png" class="w-16 h-16 rounded-xl object-cover"/>
       <div class="flex-1">
         <h3 class="font-semibold">Hot Chocolate</h3>
         <p class="text-xs opacity-70">Sweetened dark chocolate</p>
@@ -105,7 +104,7 @@
   <div id="others" class="hidden">
 
     <div class="flex gap-3 items-center">
-      <img src="Lem1.png" class="w-16 h-16 rounded-xl object-cover"/>
+      <img src="lemon.png" class="w-16 h-16 rounded-xl object-cover"/>
       <div class="flex-1">
         <h3 class="font-semibold">Iced Lemonade</h3>
         <p class="text-xs opacity-70">Fresh lemon drink</p>
@@ -146,25 +145,20 @@
 <!-- SCRIPT -->
 <script>
 function showTab(tab) {
-  document.getElementById("coffee").classList.add("hidden");
-  document.getElementById("chocolate").classList.add("hidden");
-  document.getElementById("others").classList.add("hidden");
+  const tabs = ["coffee", "chocolate", "others"];
+  const tabButtons = {
+    coffee: "tabCoffee",
+    chocolate: "tabChocolate",
+    others: "tabOthers"
+  };
 
-  document.getElementById("tabCoffee").className = "w-1/3 py-2 bg-[#FCF2D9] text-[#834D1E]";
-  document.getElementById("tabChocolate").className = "w-1/3 py-2 bg-[#FCF2D9] text-[#834D1E]";
-  document.getElementById("tabOthers").className = "w-1/3 py-2 bg-[#FCF2D9] text-[#834D1E]";
+  tabs.forEach(t => {
+    document.getElementById(t).classList.add("hidden"); // hide all
+    document.getElementById(tabButtons[t]).className = "w-1/3 py-2 bg-[#FCF2D9] text-[#834D1E]"; // reset buttons
+  });
 
-  document.getElementById(tab).classList.remove("hidden");
-
-  if (tab === "coffee") {
-    document.getElementById("tabCoffee").className = "w-1/3 py-2 bg-[#834D1E] text-[#FCF2D9]";
-  }
-  if (tab === "chocolate") {
-    document.getElementById("tabChocolate").className = "w-1/3 py-2 bg-[#834D1E] text-[#FCF2D9]";
-  }
-  if (tab === "others") {
-    document.getElementById("tabOthers").className = "w-1/3 py-2 bg-[#834D1E] text-[#FCF2D9]";
-  }
+  document.getElementById(tab).classList.remove("hidden"); // show selected
+  document.getElementById(tabButtons[tab]).className = "w-1/3 py-2 bg-[#834D1E] text-[#FCF2D9]"; // highlight selected
 }
 </script>
 
