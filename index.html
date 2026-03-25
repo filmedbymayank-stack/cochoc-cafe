@@ -7,7 +7,6 @@
 
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
@@ -37,8 +36,8 @@
     </p>
   </div>
 
-  <!-- SMALL HEADER -->
-  <div id="smallHeader" class="absolute bottom-[20%] left-1/2 -translate-x-1/2 text-center z-30 opacity-0 transition-all duration-700">
+  <!-- SMALL HEADER (MOVED UP MORE) -->
+  <div id="smallHeader" class="absolute bottom-[24%] left-1/2 -translate-x-1/2 text-center z-30 opacity-0 transition-all duration-700">
     <h1 class="text-[25px] font-bold tracking-[4px] text-gray-900 leading-none">
       Co / Choc
     </h1>
@@ -50,14 +49,13 @@
 </section>
 
 <!-- LOGIN -->
-<section class="pb-24">
+<section class="pb-16">
 
-  <section id="loginSection" class="relative flex justify-center -mt-28 z-20 opacity-0 translate-y-10 transition-all duration-700">
+  <!-- MOVED UP -->
+  <section id="loginSection" class="relative flex justify-center -mt-36 z-20 opacity-0 translate-y-10 transition-all duration-700">
 
-    <!-- SMALLER BOX -->
     <div class="w-[260px] h-[420px] bg-[#FCF2D9] border-2 border-[#834D1E] rounded-3xl p-4 shadow-xl">
 
-      <!-- Tabs -->
       <div class="flex border-2 border-[#834D1E] rounded-full overflow-hidden mb-5 font-[Inter]">
         
         <button onclick="showLogin()" id="loginTab"
@@ -72,7 +70,6 @@
 
       </div>
 
-      <!-- LOGIN -->
       <div id="loginForm">
         <input type="text" placeholder="Username or email"
           class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-5 outline-none text-sm"/>
@@ -87,7 +84,6 @@
         </button>
       </div>
 
-      <!-- SIGNUP -->
       <div id="signupForm" class="hidden">
         <input type="email" placeholder="Email"
           class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-4 outline-none text-sm"/>
