@@ -20,7 +20,7 @@
 <body class="bg-[#f5e6d3] overflow-x-hidden">
 
 <!-- HERO -->
-<section id="hero" class="relative h-[85vh] flex items-center justify-center text-center overflow-hidden">
+<section id="hero" class="relative h-[85vh] overflow-hidden flex items-center justify-center text-center">
 
   <!-- BG IMAGE -->
   <div class="absolute inset-0 overflow-hidden rounded-b-[60px]">
@@ -33,38 +33,40 @@
     <h1 class="text-[40px] font-bold tracking-[6px] text-gray-900 leading-none">
       Co / Choc
     </h1>
-
     <p class="text-[11px] font-bold tracking-[1px] mt-1 text-black">
+      A way to enjoy bitter and sweet of life
+    </p>
+  </div>
+
+  <!-- SMALL HEADER (ON IMAGE) -->
+  <div id="smallHeader" class="absolute bottom-[8%] left-1/2 -translate-x-1/2 text-center z-20 opacity-0 transition-all duration-700">
+    <h1 class="text-[25px] font-bold tracking-[4px] text-gray-900 leading-none">
+      Co / Choc
+    </h1>
+    <p class="text-[8px] font-bold tracking-[1px] mt-1 text-black">
       A way to enjoy bitter and sweet of life
     </p>
   </div>
 
 </section>
 
-<!-- SMALL HEADER (NOW ABOVE LOGIN) -->
-<div id="smallHeader" class="text-center mt-4 opacity-0 transition-all duration-700">
-  <h1 class="text-[25px] font-bold tracking-[4px] text-gray-900 leading-none">
-    Co / Choc
-  </h1>
-
-  <p class="text-[8px] font-bold tracking-[1px] mt-1 text-black">
-    A way to enjoy bitter and sweet of life
-  </p>
-</div>
-
-<!-- LOGIN + BOTTOM SPACE -->
+<!-- LOGIN -->
 <section class="pb-24">
 
-  <section id="loginSection" class="relative flex justify-center mt-4 opacity-0 translate-y-10 transition-all duration-700">
+  <!-- OVERLAP 10% -->
+  <section id="loginSection" class="relative flex justify-center -mt-20 z-30 opacity-0 translate-y-10 transition-all duration-700">
 
     <div class="w-[320px] h-[481px] bg-[#FCF2D9] border-2 border-[#834D1E] rounded-3xl p-5 shadow-xl">
 
       <!-- Tabs -->
       <div class="flex border-2 border-[#834D1E] rounded-full overflow-hidden mb-6 font-[Inter]">
-        <button onclick="showLogin()" class="w-1/2 bg-[#834D1E] text-[#FCF2D9] text-[12px] font-semibold py-2">
+        <button onclick="showLogin()" id="loginTab"
+          class="w-1/2 bg-[#834D1E] text-[#FCF2D9] text-[12px] font-semibold py-2 transition-all">
           Login
         </button>
-        <button onclick="showSignup()" class="w-1/2 bg-[#FCF2D9] text-[#834D1E] text-[12px] font-semibold py-2">
+
+        <button onclick="showSignup()" id="signupTab"
+          class="w-1/2 bg-[#FCF2D9] text-[#834D1E] text-[12px] font-semibold py-2 transition-all">
           Sign Up
         </button>
       </div>
@@ -112,14 +114,17 @@
   const smallHeader = document.getElementById("smallHeader");
   const loginSection = document.getElementById("loginSection");
 
-  // Fade-in on load
+  const loginTab = document.getElementById("loginTab");
+  const signupTab = document.getElementById("signupTab");
+
+  // Fade-in
   window.addEventListener("load", () => {
     setTimeout(() => {
       heroText.classList.remove("opacity-0", "translate-y-5");
     }, 100);
   });
 
-  // Scroll animation
+  // Scroll
   window.addEventListener("scroll", () => {
     let scrollY = window.scrollY;
 
@@ -137,11 +142,19 @@
   function showLogin() {
     document.getElementById("loginForm").classList.remove("hidden");
     document.getElementById("signupForm").classList.add("hidden");
+
+    loginTab.classList.add("bg-[#834D1E]", "text-[#FCF2D9]");
+    signupTab.classList.remove("bg-[#834D1E]", "text-[#FCF2D9]");
+    signupTab.classList.add("bg-[#FCF2D9]", "text-[#834D1E]");
   }
 
   function showSignup() {
     document.getElementById("signupForm").classList.remove("hidden");
     document.getElementById("loginForm").classList.add("hidden");
+
+    signupTab.classList.add("bg-[#834D1E]", "text-[#FCF2D9]");
+    loginTab.classList.remove("bg-[#834D1E]", "text-[#FCF2D9]");
+    loginTab.classList.add("bg-[#FCF2D9]", "text-[#834D1E]");
   }
 </script>
 
