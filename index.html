@@ -15,16 +15,18 @@
       font-family: 'Raleway', sans-serif;
     }
 
-    .fade-in {
-      opacity: 0;
-      transform: translateY(30px);
-      transition: all 0.8s ease;
-    }
+    .fade-start {
+  opacity: 0;
+  transform: translateY(20px);
+  animation: fadeStart 1.2s ease-out forwards;
+}
 
-    .show {
-      opacity: 1;
-      transform: translateY(0);
-    }
+@keyframes fadeStart {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
   </style>
 </head>
 
@@ -45,7 +47,7 @@
   </div>
 
   <!-- TEXT -->
-  <div class="relative z-10">
+  <div class="relative z-10 fade-in">
     <h1 id="logo" class="text-[40px] font-bold tracking-[6px] text-gray-900 leading-none transition-all duration-700">
       Co / Choc
     </h1>
@@ -58,7 +60,7 @@
 </section>
 
 <!-- LOGIN SECTION -->
-<section id="loginSection" class="min-h-screen flex items-start justify-center pt-10 fade-in">
+<section id="loginSection" class="min-h-screen flex items-start justify-center pt-2 fade-in">
 
   <div class="w-[320px] h-[481px] bg-[#FCF2D9] border-2 border-[#834D1E] rounded-3xl p-5">
 
@@ -116,6 +118,7 @@
     let scrollY = window.scrollY;
 
     if (scrollY > 50) {
+      // shrink
       logo.classList.add("text-[25px]");
       logo.classList.remove("text-[40px]");
 
@@ -123,30 +126,18 @@
       tagline.classList.remove("text-[11px]");
 
       loginSection.classList.add("show");
+
+    } else {
+      // back to original
+      logo.classList.add("text-[40px]");
+      logo.classList.remove("text-[25px]");
+
+      tagline.classList.add("text-[11px]");
+      tagline.classList.remove("text-[8px]");
+
+      loginSection.classList.remove("show");
     }
   });
-
-  function showLogin() {
-    document.getElementById("loginForm").classList.remove("hidden");
-    document.getElementById("signupForm").classList.add("hidden");
-
-    document.getElementById("loginTab").classList.add("bg-[#834D1E]", "text-[#FCF2D9]");
-    document.getElementById("loginTab").classList.remove("bg-[#FCF2D9]", "text-[#834D1E]");
-
-    document.getElementById("signupTab").classList.add("bg-[#FCF2D9]", "text-[#834D1E]");
-    document.getElementById("signupTab").classList.remove("bg-[#834D1E]", "text-[#FCF2D9]");
-  }
-
-  function showSignup() {
-    document.getElementById("signupForm").classList.remove("hidden");
-    document.getElementById("loginForm").classList.add("hidden");
-
-    document.getElementById("signupTab").classList.add("bg-[#834D1E]", "text-[#FCF2D9]");
-    document.getElementById("signupTab").classList.remove("bg-[#FCF2D9]", "text-[#834D1E]");
-
-    document.getElementById("loginTab").classList.add("bg-[#FCF2D9]", "text-[#834D1E]");
-    document.getElementById("loginTab").classList.remove("bg-[#834D1E]", "text-[#FCF2D9]");
-  }
 </script>
 
 </body>
