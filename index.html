@@ -31,15 +31,29 @@
 <body class="bg-[#f5e6d3] overflow-x-hidden">
 
 <!-- HERO -->
-<section id="hero" class="h-screen flex flex-col items-center justify-center text-center transition-all duration-700">
-  
-  <h1 id="logo" class="text-[40px] font-bold tracking-[6px] text-gray-900 leading-none transition-all duration-700">
-    Co / Choc
-  </h1>
+<section id="hero" class="relative h-screen flex flex-col items-center justify-center text-center transition-all duration-700">
 
-  <p id="tagline" class="text-[11px] font-bold tracking-[1px] mt-1 text-black transition-all duration-700">
-    A way to enjoy bitter and sweet of life
-  </p>
+  <!-- BACKGROUND IMAGE -->
+  <div class="absolute inset-0">
+    <img 
+      src="wallpaper.png"
+      class="w-full h-full object-cover"
+    />
+    
+    <!-- optional overlay (remove if you want full clear image) -->
+    <!-- <div class="absolute inset-0 bg-black/30"></div> -->
+  </div>
+
+  <!-- TEXT -->
+  <div class="relative z-10">
+    <h1 id="logo" class="text-[40px] font-bold tracking-[6px] text-gray-900 leading-none transition-all duration-700">
+      Co / Choc
+    </h1>
+
+    <p id="tagline" class="text-[11px] font-bold tracking-[1px] mt-1 text-black transition-all duration-700">
+      A way to enjoy bitter and sweet of life
+    </p>
+  </div>
 
 </section>
 
