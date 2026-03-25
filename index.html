@@ -29,21 +29,21 @@
   </div>
 
   <!-- CURVE -->
-  <div class="absolute bottom-0 w-full h-[120px] bg-[#f5e6d3] rounded-t-[100%] z-10"></div>
+  <div class="absolute bottom-0 w-full h-[140px] bg-[#f5e6d3] rounded-b-[100%] translate-y-1/2 z-10"></div>
 
   <!-- BIG TEXT -->
   <div id="heroText" class="relative z-20 opacity-0 translate-y-5 transition-all duration-1000">
-    <h1 id="logo" class="text-[40px] font-bold tracking-[6px] text-gray-900 leading-none">
+    <h1 class="text-[40px] font-bold tracking-[6px] text-gray-900 leading-none">
       Co / Choc
     </h1>
 
-    <p id="tagline" class="text-[11px] font-bold tracking-[1px] mt-1 text-black">
+    <p class="text-[11px] font-bold tracking-[1px] mt-1 text-black">
       A way to enjoy bitter and sweet of life
     </p>
   </div>
 
   <!-- SMALL HEADER -->
-  <div id="smallHeader" class="absolute top-[10%] left-1/2 -translate-x-1/2 text-center z-20 opacity-0 transition-all duration-700">
+  <div id="smallHeader" class="absolute top-[18%] left-1/2 -translate-x-1/2 text-center z-20 opacity-0 transition-all duration-700">
     <h1 class="text-[25px] font-bold tracking-[4px] text-gray-900 leading-none">
       Co / Choc
     </h1>
@@ -55,53 +55,58 @@
 
 </section>
 
-<!-- LOGIN -->
-<section id="loginSection" class="relative flex justify-center -mt-40 z-30 opacity-0 translate-y-10 transition-all duration-700">
+<!-- LOGIN + BOTTOM SPACE -->
+<section class="pb-24">
 
-  <div class="w-[320px] h-[481px] bg-[#FCF2D9] border-2 border-[#834D1E] rounded-3xl p-5 shadow-xl">
+  <section id="loginSection" class="relative flex justify-center -mt-24 z-30 opacity-0 translate-y-10 transition-all duration-700">
 
-    <!-- Tabs -->
-    <div class="flex border-2 border-[#834D1E] rounded-full overflow-hidden mb-6 font-[Inter]">
-      <button onclick="showLogin()" id="loginTab" class="w-1/2 bg-[#834D1E] text-[#FCF2D9] text-[12px] font-semibold py-2">
-        Login
-      </button>
-      <button onclick="showSignup()" id="signupTab" class="w-1/2 bg-[#FCF2D9] text-[#834D1E] text-[12px] font-semibold py-2">
-        Sign Up
-      </button>
+    <div class="w-[320px] h-[481px] bg-[#FCF2D9] border-2 border-[#834D1E] rounded-3xl p-5 shadow-xl">
+
+      <!-- Tabs -->
+      <div class="flex border-2 border-[#834D1E] rounded-full overflow-hidden mb-6 font-[Inter]">
+        <button onclick="showLogin()" id="loginTab" class="w-1/2 bg-[#834D1E] text-[#FCF2D9] text-[12px] font-semibold py-2">
+          Login
+        </button>
+        <button onclick="showSignup()" id="signupTab" class="w-1/2 bg-[#FCF2D9] text-[#834D1E] text-[12px] font-semibold py-2">
+          Sign Up
+        </button>
+      </div>
+
+      <!-- LOGIN -->
+      <div id="loginForm">
+        <input type="text" placeholder="Username or email"
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] mb-6 outline-none"/>
+
+        <input type="password" placeholder="Password"
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] mb-4 outline-none"/>
+
+        <p class="text-right text-[10px] text-[#834D1E] mb-6">Forgot password?</p>
+
+        <button class="w-full bg-[#834D1E] text-[#FCF2D9] py-3 rounded-full font-semibold">
+          Login
+        </button>
+      </div>
+
+      <!-- SIGNUP -->
+      <div id="signupForm" class="hidden">
+        <input type="email" placeholder="Email"
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] mb-5 outline-none"/>
+
+        <input type="password" placeholder="Password"
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] mb-5 outline-none"/>
+
+        <input type="password" placeholder="Confirm Password"
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] mb-6 outline-none"/>
+
+        <button class="w-full bg-[#834D1E] text-[#FCF2D9] py-3 rounded-full font-semibold">
+          Sign Up
+        </button>
+      </div>
+
     </div>
 
-    <!-- LOGIN -->
-    <div id="loginForm">
-      <input type="text" placeholder="Username or email"
-        class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] mb-6 outline-none"/>
+  </section>
 
-      <input type="password" placeholder="Password"
-        class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] mb-4 outline-none"/>
-
-      <p class="text-right text-[10px] text-[#834D1E] mb-6">Forgot password?</p>
-
-      <button class="w-full bg-[#834D1E] text-[#FCF2D9] py-3 rounded-full font-semibold">
-        Login
-      </button>
-    </div>
-
-    <!-- SIGNUP -->
-    <div id="signupForm" class="hidden">
-      <input type="email" placeholder="Email"
-        class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] mb-5 outline-none"/>
-
-      <input type="password" placeholder="Password"
-        class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] mb-5 outline-none"/>
-
-      <input type="password" placeholder="Confirm Password"
-        class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] mb-6 outline-none"/>
-
-      <button class="w-full bg-[#834D1E] text-[#FCF2D9] py-3 rounded-full font-semibold">
-        Sign Up
-      </button>
-    </div>
-
-  </div>
 </section>
 
 <!-- SCRIPT -->
@@ -110,27 +115,24 @@
   const smallHeader = document.getElementById("smallHeader");
   const loginSection = document.getElementById("loginSection");
 
-  // 🔥 Fade-in on load
+  // Fade-in on load
   window.addEventListener("load", () => {
     setTimeout(() => {
       heroText.classList.remove("opacity-0", "translate-y-5");
     }, 100);
   });
 
-  // 🔥 Scroll animation
+  // Scroll animation
   window.addEventListener("scroll", () => {
     let scrollY = window.scrollY;
 
     if (scrollY > 50) {
       heroText.classList.add("opacity-0");
       smallHeader.classList.remove("opacity-0");
-
       loginSection.classList.remove("opacity-0", "translate-y-10");
-
     } else {
       heroText.classList.remove("opacity-0");
       smallHeader.classList.add("opacity-0");
-
       loginSection.classList.add("opacity-0", "translate-y-10");
     }
   });
