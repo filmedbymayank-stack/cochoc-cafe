@@ -3,129 +3,218 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Co/Choc Home</title>
+  <title>Co/Choc</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
 
+  <!-- Fonts -->
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
   <style>
     body {
-      font-family: 'Inter', sans-serif;
+      font-family: 'Raleway', sans-serif;
+    }
+
+    /* Floating animation */
+    @keyframes float {
+      0% { transform: translateY(0px); }
+      50% { transform: translateY(-12px); }
+      100% { transform: translateY(0px); }
+    }
+
+    .float {
+      animation: float 4s ease-in-out infinite;
     }
   </style>
 </head>
 
-<body class="bg-[#FCF2D9] text-[#834D1E]">
+<body class="bg-[#f5e6d3] overflow-x-hidden relative">
 
-<!-- HEADER -->
-<div class="flex justify-between items-center px-5 pt-6">
+<!-- HERO -->
+<section id="hero" class="relative h-[85vh] overflow-hidden flex items-center justify-center text-center">
 
-  <h1 class="text-sm font-semibold">
-    Good day, John Smith
-  </h1>
-
-  <div class="flex gap-4 text-xl">
-    <span>🔔</span>
-    <span>≡</span>
+  <div id="bgWrapper" class="absolute inset-0 overflow-hidden transition-all duration-700">
+    <img id="bgImage" src="wallpaper.png" class="w-full h-full object-cover transition-all duration-700"/>
+    <div class="absolute inset-0 bg-black/20"></div>
   </div>
 
-</div>
+  <!-- BIG TEXT -->
+  <div id="heroText" class="relative z-20 opacity-0 translate-y-5 transition-all duration-1000">
+    <h1 class="text-[40px] font-bold tracking-[6px] text-gray-900 leading-none">
+      Co / Choc
+    </h1>
+    <p class="text-[11px] font-bold tracking-[1px] mt-1 text-black">
+      A way to enjoy bitter and sweet of life
+    </p>
+  </div>
 
-<!-- BEST SELLER CARD -->
-<div class="px-5 mt-6">
-  <div class="bg-[#834D1E] text-[#FCF2D9] rounded-2xl p-4 flex justify-between items-center shadow-md">
+  <!-- SMALL HEADER -->
+  <div id="smallHeader" class="absolute bottom-[36%] left-1/2 -translate-x-1/2 text-center z-30 opacity-0 transition-all duration-700">
+    <h1 class="text-[25px] font-bold tracking-[4px] text-gray-900 leading-none">
+      Co / Choc
+    </h1>
+    <p class="text-[8px] font-bold tracking-[1px] mt-1 text-black">
+      A way to enjoy bitter and sweet of life
+    </p>
+  </div>
 
-    <div>
-      <p class="text-xs opacity-80 mb-1">Best seller of the week</p>
-      <h2 class="text-lg font-bold leading-tight">
-        Iced Coffee <br> Sweet Heaven
-      </h2>
+</section>
 
-      <p class="text-xs mt-3 flex items-center gap-1">
-        More info →
-      </p>
+<!-- LOGIN -->
+<section class="pb-24">
+
+  <section id="loginSection" class="relative flex justify-center -mt-56 z-20 opacity-0 translate-y-10 transition-all duration-700">
+
+    <div class="w-[260px] h-[380px] bg-[#FCF2D9] border-2 border-[#834D1E] rounded-3xl p-4 shadow-xl">
+
+      <!-- Tabs -->
+      <div class="flex border-2 border-[#834D1E] rounded-full overflow-hidden mb-5 font-[Inter]">
+        
+        <button onclick="showLogin()" id="loginTab"
+          class="w-1/2 text-[11px] font-semibold py-2 bg-[#834D1E] text-[#FCF2D9]">
+          Login
+        </button>
+
+        <button onclick="showSignup()" id="signupTab"
+          class="w-1/2 text-[11px] font-semibold py-2 bg-[#FCF2D9] text-[#834D1E]">
+          Sign Up
+        </button>
+
+      </div>
+
+      <!-- LOGIN -->
+      <div id="loginForm">
+        <input type="text" placeholder="Username or email"
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-4 outline-none text-sm"/>
+
+        <input type="password" placeholder="Password"
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-3 outline-none text-sm"/>
+
+        <p class="text-right text-[9px] text-[#834D1E] mb-4">Forgot password?</p>
+
+        <button onclick="openPopup()" class="w-full bg-[#834D1E] text-[#FCF2D9] py-2 rounded-full text-sm font-semibold">
+          Login
+        </button>
+      </div>
+
+      <!-- SIGNUP -->
+      <div id="signupForm" class="hidden">
+        <input type="email" placeholder="Email"
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-4 outline-none text-sm"/>
+
+        <input type="password" placeholder="Password"
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-4 outline-none text-sm"/>
+
+        <input type="password" placeholder="Confirm Password"
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-4 outline-none text-sm"/>
+
+        <button class="w-full bg-[#834D1E] text-[#FCF2D9] py-2 rounded-full text-sm font-semibold">
+          Sign Up
+        </button>
+      </div>
+
     </div>
 
-    <img src="coffee1.png" class="w-20 h-24 object-cover rounded-xl"/>
-  </div>
-</div>
+  </section>
 
-<!-- RECOMMENDATIONS -->
-<div class="px-5 mt-6">
+</section>
 
-  <div class="flex justify-between items-center mb-3">
-    <h2 class="text-sm font-semibold">This week’s recommendations</h2>
-    <p class="text-xs">See all</p>
-  </div>
+<!-- POPUP -->
+<div id="popup" class="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm z-[9999] opacity-0 pointer-events-none transition-all duration-500">
 
-  <div class="flex gap-4">
+  <div class="bg-[#FCF2D9] border-2 border-[#834D1E] rounded-2xl p-6 w-[260px] text-center shadow-xl scale-90 transition-all duration-500" id="popupBox">
 
-    <!-- ITEM 1 -->
-    <div class="w-[140px] h-[170px] relative rounded-2xl overflow-hidden shadow-md">
-      <img src="coffee2.png" class="w-full h-full object-cover"/>
-
-      <div class="absolute bottom-0 w-full p-2 bg-gradient-to-t from-black/60 to-transparent text-white text-xs">
-        <p>Iced Americano</p>
-        <p class="font-bold">₹200</p>
+    <div class="flex justify-center mb-3">
+      <div class="w-12 h-12 border-2 border-[#834D1E] rounded-full flex items-center justify-center">
+        <svg id="tick" class="w-6 h-6 text-[#834D1E]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" stroke-dasharray="30" stroke-dashoffset="30"/>
+        </svg>
       </div>
     </div>
 
-    <!-- ITEM 2 -->
-    <div class="w-[140px] h-[170px] relative rounded-2xl overflow-hidden shadow-md">
-      <img src="coffee3.png" class="w-full h-full object-cover"/>
+    <h2 class="text-[#834D1E] font-bold text-lg mb-2">
+      You're almost there
+    </h2>
 
-      <div class="absolute bottom-0 w-full p-2 bg-gradient-to-t from-black/60 to-transparent text-white text-xs">
-        <p>Hot Cappuccino</p>
-        <p class="font-bold">₹240</p>
-      </div>
-    </div>
+    <p class="text-[#834D1E] text-xs">
+      now let's get started
+    </p>
 
   </div>
-
 </div>
 
-<!-- SHOP SECTION -->
-<div class="px-5 mt-6 mb-24">
+<!-- SCRIPT -->
+<script>
+  const heroText = document.getElementById("heroText");
+  const smallHeader = document.getElementById("smallHeader");
+  const loginSection = document.getElementById("loginSection");
+  const bgWrapper = document.getElementById("bgWrapper");
+  const bgImage = document.getElementById("bgImage");
 
-  <h2 class="text-sm font-semibold mb-3">What’s in the shop?</h2>
+  const loginTab = document.getElementById("loginTab");
+  const signupTab = document.getElementById("signupTab");
 
-  <div class="w-full h-[150px] rounded-2xl overflow-hidden relative shadow-md">
-    <img src="lemon.png" class="w-full h-full object-cover"/>
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      heroText.classList.remove("opacity-0", "translate-y-5");
+    }, 100);
+  });
 
-    <div class="absolute inset-0 bg-black/30 flex items-center p-4">
-      <p class="text-white font-semibold text-sm">
-        Introducing our new lemonade menu
-      </p>
-    </div>
-  </div>
+  window.addEventListener("scroll", () => {
+    let scrollY = window.scrollY;
 
-</div>
+    if (scrollY > 50) {
+      bgWrapper.classList.add("rounded-b-[120px]");
+      bgImage.classList.add("-translate-y-6");
 
-<!-- BOTTOM NAV -->
-<div class="fixed bottom-0 w-full bg-[#834D1E] text-[#FCF2D9] flex justify-around py-3 text-xs">
+      heroText.classList.add("opacity-0");
+      smallHeader.classList.remove("opacity-0");
+      loginSection.classList.remove("opacity-0", "translate-y-10");
 
-  <div class="flex flex-col items-center">
-    <span>🏠</span>
-    <p>Home</p>
-  </div>
+    } else {
+      bgWrapper.classList.remove("rounded-b-[120px]");
+      bgImage.classList.remove("-translate-y-6");
 
-  <div class="flex flex-col items-center opacity-70">
-    <span>☕</span>
-    <p>Drink Menu</p>
-  </div>
+      heroText.classList.remove("opacity-0");
+      smallHeader.classList.add("opacity-0");
+      loginSection.classList.add("opacity-0", "translate-y-10");
+    }
+  });
 
-  <div class="flex flex-col items-center opacity-70">
-    <span>📄</span>
-    <p>Your Order</p>
-  </div>
+  function showLogin() {
+    document.getElementById("loginForm").classList.remove("hidden");
+    document.getElementById("signupForm").classList.add("hidden");
 
-  <div class="flex flex-col items-center opacity-70">
-    <span>❤️</span>
-    <p>Favorites</p>
-  </div>
+    loginTab.className = "w-1/2 text-[11px] font-semibold py-2 bg-[#834D1E] text-[#FCF2D9]";
+    signupTab.className = "w-1/2 text-[11px] font-semibold py-2 bg-[#FCF2D9] text-[#834D1E]";
+  }
 
-</div>
+  function showSignup() {
+    document.getElementById("signupForm").classList.remove("hidden");
+    document.getElementById("loginForm").classList.add("hidden");
+
+    signupTab.className = "w-1/2 text-[11px] font-semibold py-2 bg-[#834D1E] text-[#FCF2D9]";
+    loginTab.className = "w-1/2 text-[11px] font-semibold py-2 bg-[#FCF2D9] text-[#834D1E]";
+  }
+
+  function openPopup() {
+    const popup = document.getElementById("popup");
+    const box = document.getElementById("popupBox");
+    const tick = document.querySelector("#tick path");
+
+    popup.classList.remove("opacity-0", "pointer-events-none");
+    box.classList.remove("scale-90");
+
+    setTimeout(() => {
+      tick.style.transition = "stroke-dashoffset 0.6s ease";
+      tick.style.strokeDashoffset = "0";
+    }, 300);
+
+    setTimeout(() => {
+      window.location.href = "home.html";
+    }, 2000);
+  }
+</script>
 
 </body>
 </html>
