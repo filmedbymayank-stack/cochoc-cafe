@@ -92,8 +92,9 @@
 
         <p class="text-right text-[9px] text-[#834D1E] mb-5">Forgot password?</p>
 
-        <button class="w-full bg-[#834D1E] text-[#FCF2D9] py-2 rounded-full text-sm font-semibold">
-          Login
+        <button onclick="openPopup()" class="w-full bg-[#834D1E] text-[#FCF2D9] py-2 rounded-full text-sm font-semibold">
+  Login
+        </button>
         </button>
       </div>
 
@@ -174,7 +175,36 @@
     signupTab.className = "w-1/2 text-[11px] font-semibold py-2 bg-[#834D1E] text-[#FCF2D9]";
     loginTab.className = "w-1/2 text-[11px] font-semibold py-2 bg-[#FCF2D9] text-[#834D1E]";
   }
+  function openPopup() {
+  const popup = document.getElementById("popup");
+  popup.classList.remove("opacity-0", "pointer-events-none");
+}
+
+function closePopup() {
+  const popup = document.getElementById("popup");
+  popup.classList.add("opacity-0", "pointer-events-none");
+}
 </script>
 
+<!-- POPUP -->
+<div id="popup" class="fixed inset-0 flex items-center justify-center bg-black/40 opacity-0 pointer-events-none transition-all duration-500">
+
+  <div class="bg-[#FCF2D9] border-2 border-[#834D1E] rounded-2xl p-6 w-[260px] text-center shadow-xl">
+
+    <h2 class="text-[#834D1E] font-bold text-lg mb-2">
+      You're almost there
+    </h2>
+
+    <p class="text-[#834D1E] text-xs mb-4">
+      now let's get started
+    </p>
+
+    <button onclick="closePopup()" class="bg-[#834D1E] text-[#FCF2D9] px-4 py-2 rounded-full text-sm font-semibold">
+      Continue
+    </button>
+
+  </div>
+
+</div>
 </body>
 </html>
