@@ -3,13 +3,13 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>CoChoc Cafe</title>
+  <title>Co/Choc Cafe</title>
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-  <!-- Google Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+  <!-- Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
 
   <style>
     body {
@@ -18,30 +18,36 @@
   </style>
 </head>
 
-<body class="bg-[#fdf6f0]">
+<body class="h-screen">
 
-  <!-- NAVBAR -->
-  <nav class="flex justify-between items-center px-6 py-4">
-    <h1 class="text-xl font-bold text-brown-800">CoChoc</h1>
-    <div class="space-x-6 hidden md:flex">
-      <a href="#" class="text-gray-700 hover:text-black">Home</a>
-      <a href="#" class="text-gray-700 hover:text-black">Menu</a>
-      <a href="#" class="text-gray-700 hover:text-black">About</a>
-      <a href="#" class="text-gray-700 hover:text-black">Contact</a>
+  <!-- HERO SECTION -->
+  <section class="relative h-screen flex items-center justify-center text-center text-white">
+
+    <!-- Background Image -->
+    <div class="absolute inset-0">
+      <img 
+        src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" 
+        class="w-full h-full object-cover"
+      />
+      <!-- Dark Overlay -->
+      <div class="absolute inset-0 bg-black/60"></div>
     </div>
-  </nav>
 
-  <!-- HERO -->
-  <section class="text-center px-6 py-16">
-    <h2 class="text-4xl md:text-5xl font-bold mb-4">
-      Welcome to CoChoc Cafe ☕
-    </h2>
-    <p class="text-gray-600 max-w-xl mx-auto mb-6">
-      A community for coffee lovers and chocolate enthusiasts.
-    </p>
-    <button class="bg-black text-white px-6 py-3 rounded-full">
-      Explore Menu
-    </button>
+    <!-- Content -->
+    <div class="relative z-10 px-6">
+      <h1 class="text-5xl md:text-7xl font-bold mb-4">
+        Co/Choc
+      </h1>
+
+      <p class="text-lg md:text-2xl font-light max-w-xl mx-auto mb-6">
+        a way to enjoy bitter and sweet life
+      </p>
+
+      <button class="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
+        Explore
+      </button>
+    </div>
+
   </section>
 
 </body>
