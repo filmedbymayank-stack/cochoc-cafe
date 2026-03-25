@@ -5,15 +5,44 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CoChoc Cafe</title>
 
-  <!-- Tailwind CDN -->
+  <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
-</head>
-<body class="bg-white">
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
-  <h1 class="text-3xl font-bold text-center mt-10">
-    Website is coming soon 🚀
-  </h1>
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+    }
+  </style>
+</head>
+
+<body class="bg-[#fdf6f0]">
+
+  <!-- NAVBAR -->
+  <nav class="flex justify-between items-center px-6 py-4">
+    <h1 class="text-xl font-bold text-brown-800">CoChoc</h1>
+    <div class="space-x-6 hidden md:flex">
+      <a href="#" class="text-gray-700 hover:text-black">Home</a>
+      <a href="#" class="text-gray-700 hover:text-black">Menu</a>
+      <a href="#" class="text-gray-700 hover:text-black">About</a>
+      <a href="#" class="text-gray-700 hover:text-black">Contact</a>
+    </div>
+  </nav>
+
+  <!-- HERO -->
+  <section class="text-center px-6 py-16">
+    <h2 class="text-4xl md:text-5xl font-bold mb-4">
+      Welcome to CoChoc Cafe ☕
+    </h2>
+    <p class="text-gray-600 max-w-xl mx-auto mb-6">
+      A community for coffee lovers and chocolate enthusiasts.
+    </p>
+    <button class="bg-black text-white px-6 py-3 rounded-full">
+      Explore Menu
+    </button>
+  </section>
 
 </body>
 </html>
