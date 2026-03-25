@@ -23,7 +23,7 @@
 <section id="hero" class="relative h-[85vh] overflow-hidden flex items-center justify-center text-center">
 
   <!-- BG IMAGE -->
-  <div class="absolute inset-0 overflow-hidden rounded-b-[60px]">
+  <div id="bgWrapper" class="absolute inset-0 overflow-hidden transition-all duration-700">
     <img src="wallpaper.png" class="w-full h-full object-cover"/>
     <div class="absolute inset-0 bg-black/20"></div>
   </div>
@@ -38,8 +38,8 @@
     </p>
   </div>
 
-  <!-- SMALL HEADER (ON IMAGE) -->
-  <div id="smallHeader" class="absolute bottom-[8%] left-1/2 -translate-x-1/2 text-center z-20 opacity-0 transition-all duration-700">
+  <!-- SMALL HEADER -->
+  <div id="smallHeader" class="absolute bottom-[10%] left-1/2 -translate-x-1/2 text-center z-30 opacity-0 transition-all duration-700">
     <h1 class="text-[25px] font-bold tracking-[4px] text-gray-900 leading-none">
       Co / Choc
     </h1>
@@ -53,22 +53,23 @@
 <!-- LOGIN -->
 <section class="pb-24">
 
-  <!-- OVERLAP 10% -->
-  <section id="loginSection" class="relative flex justify-center -mt-20 z-30 opacity-0 translate-y-10 transition-all duration-700">
+  <section id="loginSection" class="relative flex justify-center -mt-20 z-20 opacity-0 translate-y-10 transition-all duration-700">
 
     <div class="w-[320px] h-[481px] bg-[#FCF2D9] border-2 border-[#834D1E] rounded-3xl p-5 shadow-xl">
 
       <!-- Tabs -->
       <div class="flex border-2 border-[#834D1E] rounded-full overflow-hidden mb-6 font-[Inter]">
+        
         <button onclick="showLogin()" id="loginTab"
-          class="w-1/2 bg-[#834D1E] text-[#FCF2D9] text-[12px] font-semibold py-2 transition-all">
+          class="w-1/2 text-[12px] font-semibold py-2 transition-all bg-[#834D1E] text-[#FCF2D9]">
           Login
         </button>
 
         <button onclick="showSignup()" id="signupTab"
-          class="w-1/2 bg-[#FCF2D9] text-[#834D1E] text-[12px] font-semibold py-2 transition-all">
+          class="w-1/2 text-[12px] font-semibold py-2 transition-all bg-[#FCF2D9] text-[#834D1E]">
           Sign Up
         </button>
+
       </div>
 
       <!-- LOGIN -->
@@ -113,6 +114,7 @@
   const heroText = document.getElementById("heroText");
   const smallHeader = document.getElementById("smallHeader");
   const loginSection = document.getElementById("loginSection");
+  const bgWrapper = document.getElementById("bgWrapper");
 
   const loginTab = document.getElementById("loginTab");
   const signupTab = document.getElementById("signupTab");
@@ -129,10 +131,18 @@
     let scrollY = window.scrollY;
 
     if (scrollY > 50) {
+
+      // show curve ONLY after scroll
+      bgWrapper.classList.add("rounded-b-[60px]");
+
       heroText.classList.add("opacity-0");
       smallHeader.classList.remove("opacity-0");
       loginSection.classList.remove("opacity-0", "translate-y-10");
+
     } else {
+
+      bgWrapper.classList.remove("rounded-b-[60px]");
+
       heroText.classList.remove("opacity-0");
       smallHeader.classList.add("opacity-0");
       loginSection.classList.add("opacity-0", "translate-y-10");
@@ -143,18 +153,16 @@
     document.getElementById("loginForm").classList.remove("hidden");
     document.getElementById("signupForm").classList.add("hidden");
 
-    loginTab.classList.add("bg-[#834D1E]", "text-[#FCF2D9]");
-    signupTab.classList.remove("bg-[#834D1E]", "text-[#FCF2D9]");
-    signupTab.classList.add("bg-[#FCF2D9]", "text-[#834D1E]");
+    loginTab.className = "w-1/2 text-[12px] font-semibold py-2 bg-[#834D1E] text-[#FCF2D9]";
+    signupTab.className = "w-1/2 text-[12px] font-semibold py-2 bg-[#FCF2D9] text-[#834D1E]";
   }
 
   function showSignup() {
     document.getElementById("signupForm").classList.remove("hidden");
     document.getElementById("loginForm").classList.add("hidden");
 
-    signupTab.classList.add("bg-[#834D1E]", "text-[#FCF2D9]");
-    loginTab.classList.remove("bg-[#834D1E]", "text-[#FCF2D9]");
-    loginTab.classList.add("bg-[#FCF2D9]", "text-[#834D1E]");
+    signupTab.className = "w-1/2 text-[12px] font-semibold py-2 bg-[#834D1E] text-[#FCF2D9]";
+    loginTab.className = "w-1/2 text-[12px] font-semibold py-2 bg-[#FCF2D9] text-[#834D1E]";
   }
 </script>
 
