@@ -14,19 +14,6 @@
     body {
       font-family: 'Raleway', sans-serif;
     }
-
-    .fade-start {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeStart 1.2s ease-out forwards;
-}
-
-@keyframes fadeStart {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
   </style>
 </head>
 
@@ -38,33 +25,41 @@
   <!-- BG IMAGE -->
   <div class="absolute inset-0">
     <img src="wallpaper.png" class="w-full h-full object-cover"/>
-
-    <!-- optional overlay -->
     <div class="absolute inset-0 bg-black/20"></div>
   </div>
-  
-  <!-- CURVE SHAPE -->
+
+  <!-- CURVE -->
   <div class="absolute bottom-0 w-full h-[120px] bg-[#f5e6d3] rounded-t-[100%] z-10"></div>
 
-  <!-- TEXT -->
-  <div id="heroText" class="relative z-20 opacity-0 translate-y-5">
-    <h1 id="logo" class="text-[40px] font-bold tracking-[6px] text-gray-900 leading-none transition-all duration-700">
+  <!-- BIG TEXT -->
+  <div id="heroText" class="relative z-20 opacity-0 translate-y-5 transition-all duration-1000">
+    <h1 id="logo" class="text-[40px] font-bold tracking-[6px] text-gray-900 leading-none">
       Co / Choc
     </h1>
 
-    <p id="tagline" class="text-[11px] font-bold tracking-[1px] mt-1 text-black transition-all duration-700">
+    <p id="tagline" class="text-[11px] font-bold tracking-[1px] mt-1 text-black">
+      A way to enjoy bitter and sweet of life
+    </p>
+  </div>
+
+  <!-- SMALL HEADER -->
+  <div id="smallHeader" class="absolute top-[10%] left-1/2 -translate-x-1/2 text-center z-20 opacity-0 transition-all duration-700">
+    <h1 class="text-[25px] font-bold tracking-[4px] text-gray-900 leading-none">
+      Co / Choc
+    </h1>
+
+    <p class="text-[8px] font-bold tracking-[1px] mt-1 text-black">
       A way to enjoy bitter and sweet of life
     </p>
   </div>
 
 </section>
 
-<!-- LOGIN SECTION -->
-<section id="loginSection" class="relative flex justify-center -mt-32 z-30 fade-in">
+<!-- LOGIN -->
+<section id="loginSection" class="relative flex justify-center -mt-40 z-30 opacity-0 translate-y-10 transition-all duration-700">
 
   <div class="w-[320px] h-[481px] bg-[#FCF2D9] border-2 border-[#834D1E] rounded-3xl p-5 shadow-xl">
 
-    <!-- your existing login/signup code stays SAME -->
     <!-- Tabs -->
     <div class="flex border-2 border-[#834D1E] rounded-full overflow-hidden mb-6 font-[Inter]">
       <button onclick="showLogin()" id="loginTab" class="w-1/2 bg-[#834D1E] text-[#FCF2D9] text-[12px] font-semibold py-2">
@@ -75,7 +70,7 @@
       </button>
     </div>
 
-    <!-- LOGIN FORM -->
+    <!-- LOGIN -->
     <div id="loginForm">
       <input type="text" placeholder="Username or email"
         class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] mb-6 outline-none"/>
@@ -90,7 +85,7 @@
       </button>
     </div>
 
-    <!-- SIGNUP FORM -->
+    <!-- SIGNUP -->
     <div id="signupForm" class="hidden">
       <input type="email" placeholder="Email"
         class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] mb-5 outline-none"/>
@@ -111,42 +106,45 @@
 
 <!-- SCRIPT -->
 <script>
-  const logo = document.getElementById("logo");
-  const tagline = document.getElementById("tagline");
-  const loginSection = document.getElementById("loginSection");
-  const smallHeader = document.getElementById("smallHeader");
   const heroText = document.getElementById("heroText");
+  const smallHeader = document.getElementById("smallHeader");
+  const loginSection = document.getElementById("loginSection");
 
+  // 🔥 Fade-in on load
+  window.addEventListener("load", () => {
+    setTimeout(() => {
+      heroText.classList.remove("opacity-0", "translate-y-5");
+    }, 100);
+  });
+
+  // 🔥 Scroll animation
   window.addEventListener("scroll", () => {
     let scrollY = window.scrollY;
 
     if (scrollY > 50) {
-
-      // hide big center text
       heroText.classList.add("opacity-0");
-
-      // show small header
       smallHeader.classList.remove("opacity-0");
 
-      // show login
-      loginSection.classList.add("show");
+      loginSection.classList.remove("opacity-0", "translate-y-10");
 
     } else {
-
-      // show big text
       heroText.classList.remove("opacity-0");
-
-      // hide small header
       smallHeader.classList.add("opacity-0");
 
-      // hide login fade
-      loginSection.classList.remove("show");
+      loginSection.classList.add("opacity-0", "translate-y-10");
     }
   });
-</script>
 
-</body>
-</html>
+  function showLogin() {
+    document.getElementById("loginForm").classList.remove("hidden");
+    document.getElementById("signupForm").classList.add("hidden");
+  }
+
+  function showSignup() {
+    document.getElementById("signupForm").classList.remove("hidden");
+    document.getElementById("loginForm").classList.add("hidden");
+  }
+</script>
 
 </body>
 </html>
