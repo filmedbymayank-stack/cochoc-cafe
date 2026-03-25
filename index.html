@@ -3,49 +3,46 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Co/Choc Cafe</title>
+  <title>Co/Choc</title>
 
   <!-- Tailwind -->
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Font -->
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
 
   <style>
     body {
-      font-family: 'Poppins', sans-serif;
+      font-family: 'Montserrat', sans-serif;
     }
   </style>
 </head>
 
-<body class="h-screen">
+<body>
 
-  <!-- HERO SECTION -->
-  <section class="relative h-screen flex items-center justify-center text-center text-white">
+  <!-- HERO -->
+  <section class="relative h-screen flex items-center justify-center text-center">
 
-    <!-- Background Image -->
+    <!-- Background -->
     <div class="absolute inset-0">
       <img 
-        src="https://images.unsplash.com/photo-1509042239860-f550ce710b93" 
+        src="https://images.unsplash.com/photo-1511920170033-f8396924c348"
         class="w-full h-full object-cover"
       />
-      <!-- Dark Overlay -->
-      <div class="absolute inset-0 bg-black/60"></div>
+      
+      <!-- LIGHT BEIGE OVERLAY -->
+      <div class="absolute inset-0 bg-[#f5e6d3]/80"></div>
     </div>
 
-    <!-- Content -->
-    <div class="relative z-10 px-6">
-      <h1 class="text-5xl md:text-7xl font-bold mb-4">
-        Co/Choc
+    <!-- TEXT -->
+    <div class="relative z-10">
+      <h1 class="text-4xl md:text-6xl font-semibold tracking-[0.3em] text-black mb-4">
+        Co / Choc
       </h1>
 
-      <p class="text-lg md:text-2xl font-light max-w-xl mx-auto mb-6">
-        a way to enjoy bitter and sweet life
+      <p class="text-sm md:text-lg tracking-widest text-black">
+        A way to enjoy bitter and sweet of life
       </p>
-
-      <button class="bg-white text-black px-6 py-3 rounded-full font-medium hover:bg-gray-200 transition">
-        Explore
-      </button>
     </div>
 
   </section>
