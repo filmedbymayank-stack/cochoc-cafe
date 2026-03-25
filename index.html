@@ -33,21 +33,33 @@
 <body class="bg-[#f5e6d3] overflow-x-hidden">
 
 <!-- HERO -->
-<section id="hero" class="relative h-screen flex flex-col items-center justify-center text-center transition-all duration-700">
+<section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
 
-  <!-- BACKGROUND IMAGE -->
+  <!-- BG IMAGE -->
   <div class="absolute inset-0">
-    <img 
-      src="wallpaper.png"
-      class="w-full h-full object-cover"
-    />
-    
-    <!-- optional overlay (remove if you want full clear image) -->
-    <!-- <div class="absolute inset-0 bg-black/30"></div> -->
+    <img src="wallpaper.png" class="w-full h-full object-cover"/>
+
+    <!-- optional overlay -->
+    <div class="absolute inset-0 bg-black/20"></div>
   </div>
+  <!-- SMALL CENTER TEXT (after scroll) -->
+<div id="smallHeader" class="absolute top-[10%] left-1/2 -translate-x-1/2 text-center z-20 opacity-0 transition-all duration-700">
+
+  <h1 class="text-[25px] font-bold tracking-[4px] text-gray-900 leading-none">
+    Co / Choc
+  </h1>
+
+  <p class="text-[8px] font-bold tracking-[1px] mt-1 text-black">
+    A way to enjoy bitter and sweet of life
+  </p>
+
+</div>
+
+  <!-- CURVE SHAPE -->
+  <div class="absolute bottom-0 w-full h-[120px] bg-[#f5e6d3] rounded-t-[100%] z-10"></div>
 
   <!-- TEXT -->
-  <div id="heroText" class="relative z-10 opacity-0 translate-y-5">
+  <div id="heroText" class="relative z-20 opacity-0 translate-y-5">
     <h1 id="logo" class="text-[40px] font-bold tracking-[6px] text-gray-900 leading-none transition-all duration-700">
       Co / Choc
     </h1>
@@ -60,10 +72,11 @@
 </section>
 
 <!-- LOGIN SECTION -->
-<section id="loginSection" class="min-h-screen flex items-start justify-center pt-2 fade-in">
+<section id="loginSection" class="relative flex justify-center -mt-32 z-30 fade-in">
 
-  <div class="w-[320px] h-[481px] bg-[#FCF2D9] border-2 border-[#834D1E] rounded-3xl p-5">
+  <div class="w-[320px] h-[481px] bg-[#FCF2D9] border-2 border-[#834D1E] rounded-3xl p-5 shadow-xl">
 
+    <!-- your existing login/signup code stays SAME -->
     <!-- Tabs -->
     <div class="flex border-2 border-[#834D1E] rounded-full overflow-hidden mb-6 font-[Inter]">
       <button onclick="showLogin()" id="loginTab" class="w-1/2 bg-[#834D1E] text-[#FCF2D9] text-[12px] font-semibold py-2">
@@ -113,43 +126,36 @@
   const logo = document.getElementById("logo");
   const tagline = document.getElementById("tagline");
   const loginSection = document.getElementById("loginSection");
+  const smallHeader = document.getElementById("smallHeader");
+  const heroText = document.getElementById("heroText");
 
   window.addEventListener("scroll", () => {
     let scrollY = window.scrollY;
 
     if (scrollY > 50) {
-      // shrink
-      logo.classList.add("text-[25px]");
-      logo.classList.remove("text-[40px]");
 
-      tagline.classList.add("text-[8px]");
-      tagline.classList.remove("text-[11px]");
+      // hide big center text
+      heroText.classList.add("opacity-0");
 
+      // show small header
+      smallHeader.classList.remove("opacity-0");
+
+      // show login
       loginSection.classList.add("show");
 
     } else {
-      // back to original
-      logo.classList.add("text-[40px]");
-      logo.classList.remove("text-[25px]");
 
-      tagline.classList.add("text-[11px]");
-      tagline.classList.remove("text-[8px]");
+      // show big text
+      heroText.classList.remove("opacity-0");
 
+      // hide small header
+      smallHeader.classList.add("opacity-0");
+
+      // hide login fade
       loginSection.classList.remove("show");
     }
   });
 </script>
-  <!-- SCRIPT -->
-  <script>
-    window.addEventListener("load", () => {
-      const heroText = document.getElementById("heroText");
-
-      setTimeout(() => {
-        heroText.classList.remove("opacity-0", "translate-y-5");
-        heroText.classList.add("opacity-100", "translate-y-0", "transition-all", "duration-1000");
-      }, 100);
-    });
-  </script>
 
 </body>
 </html>
