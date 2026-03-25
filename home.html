@@ -4,18 +4,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
   <title>Co/Choc Home</title>
-
-  <script src="https://cdn.tailwindcss.com">
-    function openNav() {
-  document.getElementById("sideNav").classList.remove("-translate-x-full");
-  document.getElementById("overlay").classList.remove("hidden");
-}
-
-function closeNav() {
-  document.getElementById("sideNav").classList.add("-translate-x-full");
-  document.getElementById("overlay").classList.add("hidden");
-}
-  </script>
+  <script src="https://cdn.tailwindcss.com"></script>
 
   <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
 
@@ -171,6 +160,17 @@ function closeNav() {
 
 <!-- OVERLAY -->
 <div id="overlay" onclick="closeNav()" class="fixed inset-0 bg-black/30 z-[9998] hidden"></div>
+<script>
+function openNav() {
+  document.getElementById("sideNav").classList.remove("-translate-x-full");
+  document.getElementById("overlay").classList.remove("hidden");
+}
+
+function closeNav() {
+  document.getElementById("sideNav").classList.add("-translate-x-full");
+  document.getElementById("overlay").classList.add("hidden");
+}
+</script>
 
 </body>
 </html>
