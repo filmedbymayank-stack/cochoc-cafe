@@ -22,7 +22,6 @@
 <!-- HERO -->
 <section id="hero" class="relative h-[85vh] overflow-hidden flex items-center justify-center text-center">
 
-  <!-- BG IMAGE -->
   <div id="bgWrapper" class="absolute inset-0 overflow-hidden transition-all duration-700">
     <img id="bgImage" src="wallpaper.png" class="w-full h-full object-cover transition-all duration-700"/>
     <div class="absolute inset-0 bg-black/20"></div>
@@ -39,7 +38,7 @@
   </div>
 
   <!-- SMALL HEADER -->
-  <div id="smallHeader" class="absolute bottom-[16%] left-1/2 -translate-x-1/2 text-center z-30 opacity-0 transition-all duration-700">
+  <div id="smallHeader" class="absolute bottom-[20%] left-1/2 -translate-x-1/2 text-center z-30 opacity-0 transition-all duration-700">
     <h1 class="text-[25px] font-bold tracking-[4px] text-gray-900 leading-none">
       Co / Choc
     </h1>
@@ -53,20 +52,21 @@
 <!-- LOGIN -->
 <section class="pb-24">
 
-  <section id="loginSection" class="relative flex justify-center -mt-20 z-20 opacity-0 translate-y-10 transition-all duration-700">
+  <section id="loginSection" class="relative flex justify-center -mt-28 z-20 opacity-0 translate-y-10 transition-all duration-700">
 
-    <div class="w-[320px] h-[481px] bg-[#FCF2D9] border-2 border-[#834D1E] rounded-3xl p-5 shadow-xl">
+    <!-- SMALLER BOX -->
+    <div class="w-[260px] h-[420px] bg-[#FCF2D9] border-2 border-[#834D1E] rounded-3xl p-4 shadow-xl">
 
       <!-- Tabs -->
-      <div class="flex border-2 border-[#834D1E] rounded-full overflow-hidden mb-6 font-[Inter]">
+      <div class="flex border-2 border-[#834D1E] rounded-full overflow-hidden mb-5 font-[Inter]">
         
         <button onclick="showLogin()" id="loginTab"
-          class="w-1/2 text-[12px] font-semibold py-2 transition-all bg-[#834D1E] text-[#FCF2D9]">
+          class="w-1/2 text-[11px] font-semibold py-2 bg-[#834D1E] text-[#FCF2D9]">
           Login
         </button>
 
         <button onclick="showSignup()" id="signupTab"
-          class="w-1/2 text-[12px] font-semibold py-2 transition-all bg-[#FCF2D9] text-[#834D1E]">
+          class="w-1/2 text-[11px] font-semibold py-2 bg-[#FCF2D9] text-[#834D1E]">
           Sign Up
         </button>
 
@@ -75,14 +75,14 @@
       <!-- LOGIN -->
       <div id="loginForm">
         <input type="text" placeholder="Username or email"
-          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-6 outline-none"/>
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-5 outline-none text-sm"/>
 
         <input type="password" placeholder="Password"
-          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-4 outline-none"/>
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-3 outline-none text-sm"/>
 
-        <p class="text-right text-[10px] text-[#834D1E] mb-6">Forgot password?</p>
+        <p class="text-right text-[9px] text-[#834D1E] mb-5">Forgot password?</p>
 
-        <button class="w-full bg-[#834D1E] text-[#FCF2D9] py-3 rounded-full font-semibold">
+        <button class="w-full bg-[#834D1E] text-[#FCF2D9] py-2 rounded-full text-sm font-semibold">
           Login
         </button>
       </div>
@@ -90,15 +90,15 @@
       <!-- SIGNUP -->
       <div id="signupForm" class="hidden">
         <input type="email" placeholder="Email"
-          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-5 outline-none"/>
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-4 outline-none text-sm"/>
 
         <input type="password" placeholder="Password"
-          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-5 outline-none"/>
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-4 outline-none text-sm"/>
 
         <input type="password" placeholder="Confirm Password"
-          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-6 outline-none"/>
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-5 outline-none text-sm"/>
 
-        <button class="w-full bg-[#834D1E] text-[#FCF2D9] py-3 rounded-full font-semibold">
+        <button class="w-full bg-[#834D1E] text-[#FCF2D9] py-2 rounded-full text-sm font-semibold">
           Sign Up
         </button>
       </div>
@@ -109,7 +109,6 @@
 
 </section>
 
-<!-- SCRIPT -->
 <script>
   const heroText = document.getElementById("heroText");
   const smallHeader = document.getElementById("smallHeader");
@@ -120,23 +119,17 @@
   const loginTab = document.getElementById("loginTab");
   const signupTab = document.getElementById("signupTab");
 
-  // Fade-in
   window.addEventListener("load", () => {
     setTimeout(() => {
       heroText.classList.remove("opacity-0", "translate-y-5");
     }, 100);
   });
 
-  // Scroll
   window.addEventListener("scroll", () => {
     let scrollY = window.scrollY;
 
     if (scrollY > 50) {
-
-      // BIG rounded curve
       bgWrapper.classList.add("rounded-b-[120px]");
-
-      // Move image up (parallax feel)
       bgImage.classList.add("-translate-y-6");
 
       heroText.classList.add("opacity-0");
@@ -144,7 +137,6 @@
       loginSection.classList.remove("opacity-0", "translate-y-10");
 
     } else {
-
       bgWrapper.classList.remove("rounded-b-[120px]");
       bgImage.classList.remove("-translate-y-6");
 
@@ -158,16 +150,16 @@
     document.getElementById("loginForm").classList.remove("hidden");
     document.getElementById("signupForm").classList.add("hidden");
 
-    loginTab.className = "w-1/2 text-[12px] font-semibold py-2 bg-[#834D1E] text-[#FCF2D9]";
-    signupTab.className = "w-1/2 text-[12px] font-semibold py-2 bg-[#FCF2D9] text-[#834D1E]";
+    loginTab.className = "w-1/2 text-[11px] font-semibold py-2 bg-[#834D1E] text-[#FCF2D9]";
+    signupTab.className = "w-1/2 text-[11px] font-semibold py-2 bg-[#FCF2D9] text-[#834D1E]";
   }
 
   function showSignup() {
     document.getElementById("signupForm").classList.remove("hidden");
     document.getElementById("loginForm").classList.add("hidden");
 
-    signupTab.className = "w-1/2 text-[12px] font-semibold py-2 bg-[#834D1E] text-[#FCF2D9]";
-    loginTab.className = "w-1/2 text-[12px] font-semibold py-2 bg-[#FCF2D9] text-[#834D1E]";
+    signupTab.className = "w-1/2 text-[11px] font-semibold py-2 bg-[#834D1E] text-[#FCF2D9]";
+    loginTab.className = "w-1/2 text-[11px] font-semibold py-2 bg-[#FCF2D9] text-[#834D1E]";
   }
 </script>
 
