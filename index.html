@@ -20,16 +20,13 @@
 <body class="bg-[#f5e6d3] overflow-x-hidden">
 
 <!-- HERO -->
-<section id="hero" class="relative h-screen flex items-center justify-center text-center overflow-hidden">
+<section id="hero" class="relative h-[85vh] flex items-center justify-center text-center overflow-hidden">
 
   <!-- BG IMAGE -->
-  <div class="absolute inset-0">
+  <div class="absolute inset-0 overflow-hidden rounded-b-[60px]">
     <img src="wallpaper.png" class="w-full h-full object-cover"/>
     <div class="absolute inset-0 bg-black/20"></div>
   </div>
-
-  <!-- CURVE -->
-  <div class="absolute bottom-0 w-full h-[140px] bg-[#f5e6d3] rounded-b-[100%] translate-y-1/2 z-10"></div>
 
   <!-- BIG TEXT -->
   <div id="heroText" class="relative z-20 opacity-0 translate-y-5 transition-all duration-1000">
@@ -42,32 +39,32 @@
     </p>
   </div>
 
-  <!-- SMALL HEADER -->
-  <div id="smallHeader" class="absolute top-[18%] left-1/2 -translate-x-1/2 text-center z-20 opacity-0 transition-all duration-700">
-    <h1 class="text-[25px] font-bold tracking-[4px] text-gray-900 leading-none">
-      Co / Choc
-    </h1>
-
-    <p class="text-[8px] font-bold tracking-[1px] mt-1 text-black">
-      A way to enjoy bitter and sweet of life
-    </p>
-  </div>
-
 </section>
+
+<!-- SMALL HEADER (NOW ABOVE LOGIN) -->
+<div id="smallHeader" class="text-center mt-4 opacity-0 transition-all duration-700">
+  <h1 class="text-[25px] font-bold tracking-[4px] text-gray-900 leading-none">
+    Co / Choc
+  </h1>
+
+  <p class="text-[8px] font-bold tracking-[1px] mt-1 text-black">
+    A way to enjoy bitter and sweet of life
+  </p>
+</div>
 
 <!-- LOGIN + BOTTOM SPACE -->
 <section class="pb-24">
 
-  <section id="loginSection" class="relative flex justify-center -mt-24 z-30 opacity-0 translate-y-10 transition-all duration-700">
+  <section id="loginSection" class="relative flex justify-center mt-4 opacity-0 translate-y-10 transition-all duration-700">
 
     <div class="w-[320px] h-[481px] bg-[#FCF2D9] border-2 border-[#834D1E] rounded-3xl p-5 shadow-xl">
 
       <!-- Tabs -->
       <div class="flex border-2 border-[#834D1E] rounded-full overflow-hidden mb-6 font-[Inter]">
-        <button onclick="showLogin()" id="loginTab" class="w-1/2 bg-[#834D1E] text-[#FCF2D9] text-[12px] font-semibold py-2">
+        <button onclick="showLogin()" class="w-1/2 bg-[#834D1E] text-[#FCF2D9] text-[12px] font-semibold py-2">
           Login
         </button>
-        <button onclick="showSignup()" id="signupTab" class="w-1/2 bg-[#FCF2D9] text-[#834D1E] text-[12px] font-semibold py-2">
+        <button onclick="showSignup()" class="w-1/2 bg-[#FCF2D9] text-[#834D1E] text-[12px] font-semibold py-2">
           Sign Up
         </button>
       </div>
@@ -75,10 +72,10 @@
       <!-- LOGIN -->
       <div id="loginForm">
         <input type="text" placeholder="Username or email"
-          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] mb-6 outline-none"/>
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-6 outline-none"/>
 
         <input type="password" placeholder="Password"
-          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] mb-4 outline-none"/>
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-4 outline-none"/>
 
         <p class="text-right text-[10px] text-[#834D1E] mb-6">Forgot password?</p>
 
@@ -90,13 +87,13 @@
       <!-- SIGNUP -->
       <div id="signupForm" class="hidden">
         <input type="email" placeholder="Email"
-          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] mb-5 outline-none"/>
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-5 outline-none"/>
 
         <input type="password" placeholder="Password"
-          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] mb-5 outline-none"/>
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-5 outline-none"/>
 
         <input type="password" placeholder="Confirm Password"
-          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] mb-6 outline-none"/>
+          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-6 outline-none"/>
 
         <button class="w-full bg-[#834D1E] text-[#FCF2D9] py-3 rounded-full font-semibold">
           Sign Up
