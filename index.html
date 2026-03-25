@@ -24,7 +24,7 @@
 
   <!-- BG IMAGE -->
   <div id="bgWrapper" class="absolute inset-0 overflow-hidden transition-all duration-700">
-    <img src="wallpaper.png" class="w-full h-full object-cover"/>
+    <img id="bgImage" src="wallpaper.png" class="w-full h-full object-cover transition-all duration-700"/>
     <div class="absolute inset-0 bg-black/20"></div>
   </div>
 
@@ -39,7 +39,7 @@
   </div>
 
   <!-- SMALL HEADER -->
-  <div id="smallHeader" class="absolute bottom-[10%] left-1/2 -translate-x-1/2 text-center z-30 opacity-0 transition-all duration-700">
+  <div id="smallHeader" class="absolute bottom-[16%] left-1/2 -translate-x-1/2 text-center z-30 opacity-0 transition-all duration-700">
     <h1 class="text-[25px] font-bold tracking-[4px] text-gray-900 leading-none">
       Co / Choc
     </h1>
@@ -115,6 +115,7 @@
   const smallHeader = document.getElementById("smallHeader");
   const loginSection = document.getElementById("loginSection");
   const bgWrapper = document.getElementById("bgWrapper");
+  const bgImage = document.getElementById("bgImage");
 
   const loginTab = document.getElementById("loginTab");
   const signupTab = document.getElementById("signupTab");
@@ -132,8 +133,11 @@
 
     if (scrollY > 50) {
 
-      // show curve ONLY after scroll
-      bgWrapper.classList.add("rounded-b-[60px]");
+      // BIG rounded curve
+      bgWrapper.classList.add("rounded-b-[120px]");
+
+      // Move image up (parallax feel)
+      bgImage.classList.add("-translate-y-6");
 
       heroText.classList.add("opacity-0");
       smallHeader.classList.remove("opacity-0");
@@ -141,7 +145,8 @@
 
     } else {
 
-      bgWrapper.classList.remove("rounded-b-[60px]");
+      bgWrapper.classList.remove("rounded-b-[120px]");
+      bgImage.classList.remove("-translate-y-6");
 
       heroText.classList.remove("opacity-0");
       smallHeader.classList.add("opacity-0");
