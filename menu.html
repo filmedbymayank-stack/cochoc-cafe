@@ -26,7 +26,7 @@
 
     <div class="flex gap-4 text-xl">
       <span>🔔</span>
-      <span>≡</span>
+      <span onclick="openNav()" class="cursor-pointer">≡</span>
     </div>
   </div>
 
@@ -143,6 +143,27 @@
   </div>
 
 </div>
+  <!-- MENU ITEMS -->
+  <div class="space-y-6 text-[#834D1E]">
+
+    <div class="flex items-center gap-4 text-lg">
+      <span>⚙️</span>
+      <p>Settings</p>
+    </div>
+
+    <div class="flex items-center gap-4 text-lg">
+      <span>❓</span>
+      <p>Help</p>
+    </div>
+
+    <div class="flex items-center gap-4 text-lg">
+      <span>🚪</span>
+      <p>Logout</p>
+    </div>
+
+  </div>
+
+</div>
 
 <!-- SCRIPT -->
 <script>
@@ -161,6 +182,19 @@ function showTab(tab) {
 
   document.getElementById(tab).classList.remove("hidden"); // show selected
   document.getElementById(tabButtons[tab]).className = "w-1/3 py-2 bg-[#834D1E] text-[#FCF2D9]"; // highlight selected
+}
+</script>
+  <!-- OVERLAY -->
+<div id="overlay" onclick="closeNav()" class="fixed inset-0 bg-black/30 z-[9998] hidden"></div>
+<script>
+function openNav() {
+  document.getElementById("sideNav").classList.remove("-translate-x-full");
+  document.getElementById("overlay").classList.remove("hidden");
+}
+
+function closeNav() {
+  document.getElementById("sideNav").classList.add("-translate-x-full");
+  document.getElementById("overlay").classList.add("hidden");
 }
 </script>
 
