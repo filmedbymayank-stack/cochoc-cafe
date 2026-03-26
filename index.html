@@ -60,87 +60,76 @@
 
 </section>
 
-<!-- LOGIN -->
-<section class="pb-24">
+
+  <!-- Button -->
+  <section class="pb-24">
 
   <section id="loginSection" class="relative flex justify-center -mt-56 z-20 opacity-0 translate-y-10 transition-all duration-700">
 
-    <div class="w-[320px] mx-auto mt-10 p-6 
-bg-[#F3E6C9] 
-border-2 border-[#8B5A2B] 
-rounded-[40px] 
-shadow-lg">
+    <div class="w-[320px] p-6 
+    bg-[#F3E6C9] 
+    border-2 border-[#8B5A2B] 
+    rounded-[40px] 
+    shadow-lg">
 
-  <!-- Tabs -->
-  <div class="flex mb-6 bg-[#E8D7B5] rounded-full overflow-hidden border border-[#8B5A2B]">
-    <button class="w-1/2 py-2 bg-[#8B4A0E] text-white rounded-full">
-      Login
-    </button>
-    <button class="w-1/2 py-2 text-[#8B4A0E]">
-      Sign Up
-    </button>
-  </div>
-
-  <!-- Input -->
-  <input 
-    type="text" 
-    placeholder="Username or email"
-    class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-6 pb-2 outline-none placeholder-[#8B5A2B]"
-  />
-
-  <input 
-    type="password" 
-    placeholder="Password"
-    class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-2 pb-2 outline-none placeholder-[#8B5A2B]"
-  />
-
-  <!-- Forgot -->
-  <div class="text-right text-sm text-[#8B5A2B] mb-6">
-    Forgot password?
-  </div>
-
-  <!-- Button -->
-  <button class="w-full py-3 bg-[#8B4A0E] text-white rounded-full text-lg">
-    Login
-  </button>
-
-    </div>
-      <!-- LOGIN -->
-      <div id="loginForm">
-        <input type="text" placeholder="Username or email"
-          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-4 outline-none text-sm"/>
-
-        <input type="password" placeholder="Password"
-          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-3 outline-none text-sm"/>
-
-        <p class="text-right text-[9px] text-[#834D1E] mb-4">Forgot password?</p>
-
-        <button onclick="openPopup()" class="w-full bg-[#834D1E] text-[#FCF2D9] py-2 rounded-full text-sm font-semibold">
+      <!-- Tabs -->
+      <div class="flex mb-6 bg-[#E8D7B5] rounded-full overflow-hidden border border-[#8B5A2B]">
+        
+        <button id="loginTab" onclick="showLogin()" 
+        class="w-1/2 py-2 bg-[#8B4A0E] text-white rounded-full">
           Login
         </button>
-      </div>
 
-      <!-- SIGNUP -->
-      <div id="signupForm" class="hidden">
-        <input type="email" placeholder="Email"
-          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-4 outline-none text-sm"/>
-
-        <input type="password" placeholder="Password"
-          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-4 outline-none text-sm"/>
-
-        <input type="password" placeholder="Confirm Password"
-          class="w-full bg-transparent border-b-2 border-[#834D1E] text-[#834D1E] placeholder-[#834D1E] mb-4 outline-none text-sm"/>
-
-        <button class="w-full bg-[#834D1E] text-[#FCF2D9] py-2 rounded-full text-sm font-semibold">
+        <button id="signupTab" onclick="showSignup()" 
+        class="w-1/2 py-2 text-[#8B4A0E]">
           Sign Up
         </button>
+
+      </div>
+
+      <!-- LOGIN FORM -->
+      <div id="loginForm">
+
+        <input type="text" placeholder="Username or email"
+        class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-6 pb-2 outline-none placeholder-[#8B5A2B]" />
+
+        <input type="password" placeholder="Password"
+        class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-2 pb-2 outline-none placeholder-[#8B5A2B]" />
+
+        <p class="text-right text-sm text-[#8B5A2B] mb-6">
+          Forgot password?
+        </p>
+
+        <button onclick="openPopup()" 
+        class="w-full py-3 bg-[#8B4A0E] text-white rounded-full text-lg">
+          Login
+        </button>
+
+      </div>
+
+      <!-- SIGNUP FORM -->
+      <div id="signupForm" class="hidden">
+
+        <input type="email" placeholder="Email"
+        class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-4 pb-2 outline-none placeholder-[#8B5A2B]" />
+
+        <input type="password" placeholder="Password"
+        class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-4 pb-2 outline-none placeholder-[#8B5A2B]" />
+
+        <input type="password" placeholder="Confirm Password"
+        class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-6 pb-2 outline-none placeholder-[#8B5A2B]" />
+
+        <button class="w-full py-3 bg-[#8B4A0E] text-white rounded-full text-lg">
+          Sign Up
+        </button>
+
       </div>
 
     </div>
 
   </section>
 
-</section>
+  </section>
 
 <!-- POPUP -->
 <div id="popup" class="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm z-[9999] opacity-0 pointer-events-none transition-all duration-500">
@@ -204,20 +193,30 @@ shadow-lg">
     }
   });
 
-  function showLogin() {
-    document.getElementById("loginForm").classList.remove("hidden");
-    document.getElementById("signupForm").classList.add("hidden");
+  const loginTab = document.getElementById("loginTab");
+const signupTab = document.getElementById("signupTab");
 
-    loginTab.className = "w-1/2 text-[11px] font-semibold py-2 bg-[#834D1E] text-[#FCF2D9]";
-    signupTab.className = "w-1/2 text-[11px] font-semibold py-2 bg-[#FCF2D9] text-[#834D1E]";
-  }
+function showLogin() {
+  document.getElementById("loginForm").classList.remove("hidden");
+  document.getElementById("signupForm").classList.add("hidden");
 
-  function showSignup() {
-    document.getElementById("signupForm").classList.remove("hidden");
-    document.getElementById("loginForm").classList.add("hidden");
+  loginTab.classList.add("bg-[#8B4A0E]", "text-white");
+  loginTab.classList.remove("text-[#8B4A0E]");
 
-    signupTab.className = "w-1/2 text-[11px] font-semibold py-2 bg-[#834D1E] text-[#FCF2D9]";
-    loginTab.className = "w-1/2 text-[11px] font-semibold py-2 bg-[#FCF2D9] text-[#834D1E]";
+  signupTab.classList.remove("bg-[#8B4A0E]", "text-white");
+  signupTab.classList.add("text-[#8B4A0E]");
+}
+
+function showSignup() {
+  document.getElementById("signupForm").classList.remove("hidden");
+  document.getElementById("loginForm").classList.add("hidden");
+
+  signupTab.classList.add("bg-[#8B4A0E]", "text-white");
+  signupTab.classList.remove("text-[#8B4A0E]");
+
+  loginTab.classList.remove("bg-[#8B4A0E]", "text-white");
+  loginTab.classList.add("text-[#8B4A0E]");
+}
   }
 
   function openPopup() {
