@@ -143,8 +143,8 @@ body {
     Cancel
   </button>
 
-  <button class="flex-1 bg-[#6B2D0C] text-white py-3 rounded-xl text-[14px]">
-    Proceed Payment
+  <button onclick="openPopup()" class="flex-1 bg-[#6B2D0C] text-white py-3 rounded-xl text-[14px]">
+  Proceed Payment
   </button>
 
 </div>
@@ -162,7 +162,48 @@ if (data) {
 
   document.getElementById("total").innerText = "Rp " + total.toLocaleString();
 }
+  function openPopup() {
+  const popup = document.getElementById("popup");
+  const box = document.getElementById("popupBox");
+  const tick = document.querySelector("#tick path");
+
+  popup.classList.remove("opacity-0", "pointer-events-none");
+  box.classList.remove("scale-90");
+
+  setTimeout(() => {
+    tick.style.transition = "stroke-dashoffset 0.6s ease";
+    tick.style.strokeDashoffset = "0";
+  }, 300);
+
+  // CHANGE THIS PAGE AFTER SUCCESS
+  setTimeout(() => {
+    window.location.href = "home.html"; // or success.html
+  }, 2000);
+  }
 </script>
+  <!-- POPUP -->
+<div id="popup" class="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm z-[9999] opacity-0 pointer-events-none transition-all duration-500">
+
+  <div class="bg-[#FCF2D9] border-2 border-[#834D1E] rounded-2xl p-6 w-[260px] text-center shadow-xl scale-90 transition-all duration-500" id="popupBox">
+
+    <div class="flex justify-center mb-3">
+      <div class="w-12 h-12 border-2 border-[#834D1E] rounded-full flex items-center justify-center">
+        <svg id="tick" class="w-6 h-6 text-[#834D1E]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" stroke-dasharray="30" stroke-dashoffset="30"/>
+        </svg>
+      </div>
+    </div>
+
+    <h2 class="text-[#834D1E] font-bold text-lg mb-2">
+      Order Placed 🎉
+    </h2>
+
+    <p class="text-[#834D1E] text-xs">
+      Preparing your drink...
+    </p>
+
+  </div>
+</div>
 
 </body>
 </html>
