@@ -12,20 +12,21 @@
     body {
       font-family: 'Inter', sans-serif;
     }
-    @keyframes scaleUp {
-  0% {
-    transform: scale(0.8);
-    opacity: 0;
-  }
-  100% {
-    transform: scale(1);
-    opacity: 1;
-  }
-}
 
-.animate-scaleUp {
-  animation: scaleUp 0.3s ease;
-}
+    @keyframes scaleUp {
+      0% {
+        transform: scale(0.8);
+        opacity: 0;
+      }
+      100% {
+        transform: scale(1);
+        opacity: 1;
+      }
+    }
+
+    .animate-scaleUp {
+      animation: scaleUp 0.3s ease;
+    }
   </style>
 </head>
 
@@ -37,7 +38,7 @@
     <h1 class="text-lg font-semibold">Favourite</h1>
 
     <div class="flex gap-4 text-xl">
-      <span><img src="Notification.png" class="w-8 h-8"/></span>
+      <img src="Notification.png" class="w-8 h-8"/>
       <span onclick="openNav()" class="cursor-pointer">
         <img src="Menu.png" class="w-7 h-7">
       </span>
@@ -45,7 +46,7 @@
   </div>
 </div>
 
-<!-- tITLE -->
+<!-- TITLE -->
 <div class="px-5 mt-4">
   <h1 class="text-xl font-semibold leading-snug">
     Your favorite drinks to<br>lighten up your day
@@ -57,55 +58,50 @@
   <div class="grid grid-cols-2 gap-4">
 
     <!-- CARD 1 -->
-    <div class="relative rounded-2xl overflow-hidden">
+    <div onclick="openModal('Iced.png','Iced Coffee Sweet Heaven','Double espresso with condensed milk, served cold','Rp 24.000')" 
+         class="relative rounded-2xl overflow-hidden cursor-pointer">
       <img src="Iced.png" class="w-full h-52 object-cover">
       <div class="absolute inset-0 bg-black/30"></div>
 
       <div class="absolute bottom-3 left-3 text-white">
         <h3 class="font-semibold leading-tight">Iced Coffee<br>Sweet Heaven</h3>
-       <div onclick="openModal('Iced.png','Iced Coffee Sweet Heaven','Double espresso with condensed milk, served cold','Rp 24.000')" 
-     class="relative rounded-2xl overflow-hidden cursor-pointer"></div>
         <p class="text-sm mt-1">Rp 24.000</p>
       </div>
 
-      <img src="Heart.png" 
-     class="absolute bottom-3 right-3 w-7 h-7 bg-white/80 p-1 rounded-full shadow"/>
+      <img src="Heart.png" class="absolute bottom-3 right-3 w-7 h-7 bg-white/80 p-1 rounded-full shadow"/>
     </div>
 
     <!-- CARD 2 -->
-    <div class="relative rounded-2xl overflow-hidden">
+    <div onclick="openModal('Ch1.png','Iced Chocolate','Sweet cold chocolate drink','Rp 22.000')" 
+         class="relative rounded-2xl overflow-hidden cursor-pointer">
       <img src="Ch1.png" class="w-full h-52 object-cover">
       <div class="absolute inset-0 bg-black/30"></div>
 
       <div class="absolute bottom-3 left-3 text-white">
         <h3 class="font-semibold">Iced Chocolate</h3>
         <p class="text-sm mt-1">Rp 22.000</p>
-        <div onclick="openModal('Iced.png','Iced Coffee Sweet Heaven','Double espresso with condensed milk, served cold','Rp 24.000')" 
-     class="relative rounded-2xl overflow-hidden cursor-pointer"></div>
       </div>
 
-      <img src="Heart.png" 
-     class="absolute bottom-3 right-3 w-7 h-7 bg-white/80 p-1 rounded-full shadow"/>
+      <img src="Heart.png" class="absolute bottom-3 right-3 w-7 h-7 bg-white/80 p-1 rounded-full shadow"/>
     </div>
 
     <!-- CARD 3 -->
-    <div class="relative rounded-2xl overflow-hidden">
+    <div onclick="openModal('Lem1.png','Iced Lemonade','Fresh lemon drink with mint','Rp 18.000')" 
+         class="relative rounded-2xl overflow-hidden cursor-pointer">
       <img src="Lem1.png" class="w-full h-52 object-cover">
       <div class="absolute inset-0 bg-black/30"></div>
 
       <div class="absolute bottom-3 left-3 text-white">
         <h3 class="font-semibold">Iced Lemonade</h3>
-        <div onclick="openModal('Iced.png','Iced Coffee Sweet Heaven','Double espresso with condensed milk, served cold','Rp 24.000')" 
-     class="relative rounded-2xl overflow-hidden cursor-pointer"></div>
         <p class="text-sm mt-1">Rp 18.000</p>
       </div>
 
-      <img src="Heart.png" 
-     class="absolute bottom-3 right-3 w-7 h-7 bg-white/80 p-1 rounded-full shadow"/>
+      <img src="Heart.png" class="absolute bottom-3 right-3 w-7 h-7 bg-white/80 p-1 rounded-full shadow"/>
     </div>
 
     <!-- CARD 4 -->
-    <div class="relative rounded-2xl overflow-hidden">
+    <div onclick="openModal('Hot.png','Hot Cappuccino','Hot creamy cappuccino','Rp 24.000')" 
+         class="relative rounded-2xl overflow-hidden cursor-pointer">
       <img src="Hot.png" class="w-full h-52 object-cover">
       <div class="absolute inset-0 bg-black/30"></div>
 
@@ -114,14 +110,12 @@
         <p class="text-sm mt-1">Rp 24.000</p>
       </div>
 
-      <img src="Heart.png" 
-     class="absolute bottom-3 right-3 w-7 h-7 bg-white/80 p-1 rounded-full shadow"/>
-      <div onclick="openModal('Iced.png','Iced Coffee Sweet Heaven','Double espresso with condensed milk, served cold','Rp 24.000')" 
-     class="relative rounded-2xl overflow-hidden cursor-pointer"></div>
+      <img src="Heart.png" class="absolute bottom-3 right-3 w-7 h-7 bg-white/80 p-1 rounded-full shadow"/>
     </div>
 
     <!-- CARD 5 -->
-    <div class="relative rounded-2xl overflow-hidden">
+    <div onclick="openModal('Iced1.png','Iced Coffee Lemonade','Unique coffee + lemon mix','Rp 25.000')" 
+         class="relative rounded-2xl overflow-hidden cursor-pointer">
       <img src="Iced1.png" class="w-full h-52 object-cover">
       <div class="absolute inset-0 bg-black/30"></div>
 
@@ -130,88 +124,42 @@
         <p class="text-sm mt-1">Rp 25.000</p>
       </div>
 
-      <img src="Heart.png" 
-     class="absolute bottom-3 right-3 w-7 h-7 bg-white/80 p-1 rounded-full shadow"/>
-      <div onclick="openModal('Iced.png','Iced Coffee Sweet Heaven','Double espresso with condensed milk, served cold','Rp 24.000')" 
-     class="relative rounded-2xl overflow-hidden cursor-pointer"></div>
+      <img src="Heart.png" class="absolute bottom-3 right-3 w-7 h-7 bg-white/80 p-1 rounded-full shadow"/>
     </div>
 
   </div>
 </div>
 
-<!-- BOTTOM NAV -->
-<div class="fixed bottom-0 w-full bg-[#834D1E] text-[#FCF2D9] flex justify-around py-3 text-xs">
+<!-- MODAL -->
+<div id="modal" onclick="closeModal()" 
+     class="fixed inset-0 bg-black/60 z-[9999] hidden items-center justify-center">
 
-  <div class="flex flex-col items-center opacity-70"
-    onclick="window.location.href='home.html'">
-    <img src="Home.png" class="w-8 h-8"/>
-    <p>Home</p>
-  </div>
+  <div onclick="event.stopPropagation()" 
+       class="bg-[#FCF2D9] w-[90%] max-w-md rounded-[30px] overflow-hidden relative animate-scaleUp">
 
-  <div class="flex flex-col items-center opacity-70"
-    onclick="window.location.href='menu.html'">
-    <img src="Coffee.png" class="w-8 h-8"/>
-    <p>Drink Menu</p>
-  </div>
+    <button onclick="closeModal()" 
+      class="absolute top-4 left-4 text-xl font-bold text-[#834D1E]">✕</button>
 
-  <div class="flex flex-col items-center opacity-70"
-    onclick="window.location.href='yourorder.html'">
-    <img src="Yourorder.png" class="w-8 h-8"/>
-    <p>Your Order</p>
-  </div>
+    <img id="modalImg" src="" class="w-full h-64 object-cover">
 
-  <!-- ACTIVE TAB -->
-  <div class="flex flex-col items-center">
-    <img src="Favourite1.png" class="w-8 h-8"/>
-    <p>Favourite</p>
-  </div>
+    <div class="p-5 text-[#834D1E]">
+      <h2 id="modalTitle" class="text-lg font-semibold"></h2>
+      <p id="modalDesc" class="text-sm mt-2 opacity-80"></p>
+      <p id="modalPrice" class="text-xl font-bold mt-4"></p>
 
-</div>
-
-<!-- SIDE NAV -->
-<div id="sideNav" class="fixed top-0 left-0 h-full w-[75%] max-w-[300px] bg-[#FCF2D9] z-[9999] transform -translate-x-full transition-all duration-500 rounded-r-[40px] shadow-xl p-5">
-
-  <div class="flex items-center gap-3 mb-6">
-    <img src="Photo.png" class="w-12 h-12 rounded-full"/>
-    <h2 class="text-lg font-semibold text-[#834D1E]">Profile</h2>
-  </div>
-
-  <hr class="border-[#834D1E]/30 mb-4">
-
-  <div class="space-y-6 text-[#834D1E]">
-    <div class="flex items-center gap-4 text-lg">
-      <img src="Settings.png" class="w-8 h-8"/>
-      <p>Settings</p>
+      <button class="w-full mt-5 bg-[#834D1E] text-white py-3 rounded-xl">
+        Buy Now
+      </button>
     </div>
 
-    <div class="flex items-center gap-4 text-lg">
-      <img src="Help.png" class="w-8 h-8"/>
-      <p>Help</p>
-    </div>
-
-    <div class="flex items-center gap-4 text-lg">
-      <img src="Logout.png" class="w-8 h-8"/>
-      <p>Logout</p>
-    </div>
   </div>
 </div>
-
-<!-- OVERLAY -->
-<div id="overlay" onclick="closeNav()" class="fixed inset-0 bg-black/30 z-[9998] hidden"></div>
 
 <script>
-function openNav() {
-  document.getElementById("sideNav").classList.remove("-translate-x-full");
-  document.getElementById("overlay").classList.remove("hidden");
-}
-
-function closeNav() {
-  document.getElementById("sideNav").classList.add("-translate-x-full");
-  document.getElementById("overlay").classList.add("hidden");
-}
-  function openModal(img, title, desc, price) {
-  document.getElementById("modal").classList.remove("hidden");
-  document.getElementById("modal").classList.add("flex");
+function openModal(img, title, desc, price) {
+  const modal = document.getElementById("modal");
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
 
   document.getElementById("modalImg").src = img;
   document.getElementById("modalTitle").innerText = title;
@@ -220,36 +168,10 @@ function closeNav() {
 }
 
 function closeModal() {
-  document.getElementById("modal").classList.add("hidden");
+  const modal = document.getElementById("modal");
+  modal.classList.add("hidden");
 }
 </script>
-  <!-- MODAL -->
-<div id="modal" class="fixed inset-0 bg-black/60 z-[9999] hidden items-center justify-center">
-
-  <div class="bg-[#FCF2D9] w-[90%] max-w-md rounded-[30px] overflow-hidden relative animate-scaleUp">
-
-    <!-- CLOSE -->
-    <button onclick="closeModal()" 
-      class="absolute top-4 left-4 text-xl font-bold text-[#834D1E]">✕</button>
-
-    <!-- IMAGE -->
-    <img id="modalImg" src="" class="w-full h-64 object-cover">
-
-    <!-- CONTENT -->
-    <div class="p-5 text-[#834D1E]">
-      <h2 id="modalTitle" class="text-lg font-semibold"></h2>
-      <p id="modalDesc" class="text-sm mt-2 opacity-80"></p>
-
-      <p id="modalPrice" class="text-xl font-bold mt-4"></p>
-
-      <!-- BUTTON -->
-      <button class="w-full mt-5 bg-[#834D1E] text-white py-3 rounded-xl">
-        Buy Now
-      </button>
-    </div>
-
-  </div>
-</div>
 
 </body>
 </html>
