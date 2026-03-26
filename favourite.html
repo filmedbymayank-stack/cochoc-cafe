@@ -147,8 +147,9 @@
       <p id="modalDesc" class="text-sm mt-2 opacity-80"></p>
       <p id="modalPrice" class="text-xl font-bold mt-4"></p>
 
-      <button class="w-full mt-5 bg-[#834D1E] text-white py-3 rounded-xl">
-        Buy Now
+      <button onclick="goToOrder()" 
+  class="w-full mt-5 bg-[#834D1E] text-white py-3 rounded-xl">
+  Buy Now
       </button>
     </div>
 
@@ -170,6 +171,26 @@ function openModal(img, title, desc, price) {
 function closeModal() {
   const modal = document.getElementById("modal");
   modal.classList.add("hidden");
+}
+  let selectedItem = {};
+
+function openModal(img, title, desc, price) {
+  const modal = document.getElementById("modal");
+  modal.classList.remove("hidden");
+  modal.classList.add("flex");
+
+  document.getElementById("modalImg").src = img;
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalDesc").innerText = desc;
+  document.getElementById("modalPrice").innerText = price;
+
+  // SAVE DATA
+  selectedItem = { img, title, desc, price };
+}
+
+function goToOrder() {
+  localStorage.setItem("order", JSON.stringify(selectedItem));
+  window.location.href = "order.html";
 }
 </script>
 
