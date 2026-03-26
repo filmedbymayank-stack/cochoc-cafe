@@ -126,7 +126,7 @@
   </div>
 
 </div>
-  <!-- SIDE NAV -->
+<!-- SIDE NAV -->
 <div id="sideNav" class="fixed top-0 left-0 h-full w-[75%] max-w-[300px] bg-[#FCF2D9] z-[9999] transform -translate-x-full transition-all duration-500 rounded-r-[40px] shadow-xl p-5">
 
   <!-- PROFILE -->
@@ -161,7 +161,8 @@
 
 <!-- OVERLAY -->
 <div id="overlay" onclick="closeNav()" class="fixed inset-0 bg-black/30 z-[9998] hidden"></div>
-<script>
+
+  <script>
 function openNav() {
   document.getElementById("sideNav").classList.remove("-translate-x-full");
   document.getElementById("overlay").classList.remove("hidden");
@@ -171,7 +172,7 @@ function closeNav() {
   document.getElementById("sideNav").classList.add("-translate-x-full");
   document.getElementById("overlay").classList.add("hidden");
 }
-</script>
-
+  </script>
 </body>
 </html>
+
