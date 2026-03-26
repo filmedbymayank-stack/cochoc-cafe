@@ -8,22 +8,11 @@
   <script src="https://cdn.tailwindcss.com"></script>
 
   <!-- Fonts -->
-  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&family=Inter:wght@400;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Raleway:wght@400;700&display=swap" rel="stylesheet">
 
   <style>
     body {
       font-family: 'Raleway', sans-serif;
-    }
-
-    /* Floating animation */
-    @keyframes float {
-      0% { transform: translateY(0px); }
-      50% { transform: translateY(-12px); }
-      100% { transform: translateY(0px); }
-    }
-
-    .float {
-      animation: float 4s ease-in-out infinite;
     }
   </style>
 </head>
@@ -31,115 +20,97 @@
 <body class="bg-[#f5e6d3] overflow-x-hidden relative">
 
 <!-- HERO -->
-<section id="hero" class="relative h-[85vh] overflow-hidden flex items-center justify-center text-center">
+<section class="relative h-[85vh] flex items-center justify-center text-center overflow-hidden">
 
-  <div id="bgWrapper" class="absolute inset-0 overflow-hidden transition-all duration-700">
-    <img id="bgImage" src="wallpaper.png" class="w-full h-full object-cover transition-all duration-700"/>
-    <div class="absolute inset-0 bg-black/20"></div>
-  </div>
+  <img src="wallpaper.png" class="absolute inset-0 w-full h-full object-cover"/>
+  <div class="absolute inset-0 bg-black/20"></div>
 
-  <!-- BIG TEXT -->
-  <div id="heroText" class="relative z-20 opacity-0 translate-y-5 transition-all duration-1000">
-    <h1 class="text-[40px] font-bold tracking-[6px] text-gray-900 leading-none">
+  <div class="relative z-10">
+    <h1 class="text-[40px] font-bold tracking-[6px] text-black">
       Co / Choc
     </h1>
-    <p class="text-[11px] font-bold tracking-[1px] mt-1 text-black">
-      A way to enjoy bitter and sweet of life
-    </p>
-  </div>
-
-  <!-- SMALL HEADER -->
-  <div id="smallHeader" class="absolute bottom-[36%] left-1/2 -translate-x-1/2 text-center z-30 opacity-0 transition-all duration-700">
-    <h1 class="text-[25px] font-bold tracking-[4px] text-gray-900 leading-none">
-      Co / Choc
-    </h1>
-    <p class="text-[8px] font-bold tracking-[1px] mt-1 text-black">
+    <p class="text-[11px] mt-1 font-semibold">
       A way to enjoy bitter and sweet of life
     </p>
   </div>
 
 </section>
 
+<!-- LOGIN -->
+<section class="-mt-40 flex justify-center">
 
-  <!-- Button -->
-  <section class="pb-24">
+  <div class="w-[320px] p-6 
+  bg-[#F3E6C9] 
+  border-2 border-[#8B5A2B] 
+  rounded-[40px] 
+  shadow-lg">
 
-  <section id="loginSection" class="relative flex justify-center -mt-56 z-20 opacity-0 translate-y-10 transition-all duration-700">
+    <!-- Tabs -->
+    <div class="flex mb-6 bg-[#E8D7B5] rounded-full overflow-hidden border border-[#8B5A2B]">
+      
+      <button id="loginTab" onclick="showLogin()" 
+      class="w-1/2 py-2 bg-[#8B4A0E] text-white rounded-full">
+        Login
+      </button>
 
-    <div class="w-[320px] p-6 
-    bg-[#F3E6C9] 
-    border-2 border-[#8B5A2B] 
-    rounded-[40px] 
-    shadow-lg">
-
-      <!-- Tabs -->
-      <div class="flex mb-6 bg-[#E8D7B5] rounded-full overflow-hidden border border-[#8B5A2B]">
-        
-        <button id="loginTab" onclick="showLogin()" 
-        class="w-1/2 py-2 bg-[#8B4A0E] text-white rounded-full">
-          Login
-        </button>
-
-        <button id="signupTab" onclick="showSignup()" 
-        class="w-1/2 py-2 text-[#8B4A0E]">
-          Sign Up
-        </button>
-
-      </div>
-
-      <!-- LOGIN FORM -->
-      <div id="loginForm">
-
-        <input type="text" placeholder="Username or email"
-        class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-6 pb-2 outline-none placeholder-[#8B5A2B]" />
-
-        <input type="password" placeholder="Password"
-        class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-2 pb-2 outline-none placeholder-[#8B5A2B]" />
-
-        <p class="text-right text-sm text-[#8B5A2B] mb-6">
-          Forgot password?
-        </p>
-
-        <button onclick="openPopup()" 
-        class="w-full py-3 bg-[#8B4A0E] text-white rounded-full text-lg">
-          Login
-        </button>
-
-      </div>
-
-      <!-- SIGNUP FORM -->
-      <div id="signupForm" class="hidden">
-
-        <input type="email" placeholder="Email"
-        class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-4 pb-2 outline-none placeholder-[#8B5A2B]" />
-
-        <input type="password" placeholder="Password"
-        class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-4 pb-2 outline-none placeholder-[#8B5A2B]" />
-
-        <input type="password" placeholder="Confirm Password"
-        class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-6 pb-2 outline-none placeholder-[#8B5A2B]" />
-
-        <button class="w-full py-3 bg-[#8B4A0E] text-white rounded-full text-lg">
-          Sign Up
-        </button>
-
-      </div>
+      <button id="signupTab" onclick="showSignup()" 
+      class="w-1/2 py-2 text-[#8B4A0E]">
+        Sign Up
+      </button>
 
     </div>
 
-  </section>
+    <!-- LOGIN FORM -->
+    <div id="loginForm">
 
-  </section>
+      <input type="text" placeholder="Username or email"
+      class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-6 pb-2 outline-none placeholder-[#8B5A2B]" />
+
+      <input type="password" placeholder="Password"
+      class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-2 pb-2 outline-none placeholder-[#8B5A2B]" />
+
+      <p class="text-right text-sm text-[#8B5A2B] mb-6">
+        Forgot password?
+      </p>
+
+      <button onclick="openPopup()" 
+      class="w-full py-3 bg-[#8B4A0E] text-white rounded-full text-lg">
+        Login
+      </button>
+
+    </div>
+
+    <!-- SIGNUP FORM -->
+    <div id="signupForm" class="hidden">
+
+      <input type="email" placeholder="Email"
+      class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-4 pb-2 outline-none placeholder-[#8B5A2B]" />
+
+      <input type="password" placeholder="Password"
+      class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-4 pb-2 outline-none placeholder-[#8B5A2B]" />
+
+      <input type="password" placeholder="Confirm Password"
+      class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-6 pb-2 outline-none placeholder-[#8B5A2B]" />
+
+      <button class="w-full py-3 bg-[#8B4A0E] text-white rounded-full text-lg">
+        Sign Up
+      </button>
+
+    </div>
+
+  </div>
+
+</section>
 
 <!-- POPUP -->
-<div id="popup" class="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm z-[9999] opacity-0 pointer-events-none transition-all duration-500">
+<div id="popup" class="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-500">
 
-  <div class="bg-[#FCF2D9] border-2 border-[#834D1E] rounded-2xl p-6 w-[260px] text-center shadow-xl scale-90 transition-all duration-500" id="popupBox">
+  <div id="popupBox" class="bg-[#FCF2D9] border-2 border-[#834D1E] rounded-2xl p-6 w-[260px] text-center shadow-xl scale-90 transition-all duration-500">
 
     <div class="flex justify-center mb-3">
       <div class="w-12 h-12 border-2 border-[#834D1E] rounded-full flex items-center justify-center">
-        <svg id="tick" class="w-6 h-6 text-[#834D1E]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-          <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7" stroke-dasharray="30" stroke-dashoffset="30"/>
+        <svg class="w-6 h-6 text-[#834D1E]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
+          <path id="tick" d="M5 13l4 4L19 7" stroke-dasharray="30" stroke-dashoffset="30"/>
         </svg>
       </div>
     </div>
@@ -157,43 +128,8 @@
 
 <!-- SCRIPT -->
 <script>
-  const heroText = document.getElementById("heroText");
-  const smallHeader = document.getElementById("smallHeader");
-  const loginSection = document.getElementById("loginSection");
-  const bgWrapper = document.getElementById("bgWrapper");
-  const bgImage = document.getElementById("bgImage");
 
-  const loginTab = document.getElementById("loginTab");
-  const signupTab = document.getElementById("signupTab");
-
-  window.addEventListener("load", () => {
-    setTimeout(() => {
-      heroText.classList.remove("opacity-0", "translate-y-5");
-    }, 100);
-  });
-
-  window.addEventListener("scroll", () => {
-    let scrollY = window.scrollY;
-
-    if (scrollY > 50) {
-      bgWrapper.classList.add("rounded-b-[120px]");
-      bgImage.classList.add("-translate-y-6");
-
-      heroText.classList.add("opacity-0");
-      smallHeader.classList.remove("opacity-0");
-      loginSection.classList.remove("opacity-0", "translate-y-10");
-
-    } else {
-      bgWrapper.classList.remove("rounded-b-[120px]");
-      bgImage.classList.remove("-translate-y-6");
-
-      heroText.classList.remove("opacity-0");
-      smallHeader.classList.add("opacity-0");
-      loginSection.classList.add("opacity-0", "translate-y-10");
-    }
-  });
-
-  const loginTab = document.getElementById("loginTab");
+const loginTab = document.getElementById("loginTab");
 const signupTab = document.getElementById("signupTab");
 
 function showLogin() {
@@ -217,25 +153,25 @@ function showSignup() {
   loginTab.classList.remove("bg-[#8B4A0E]", "text-white");
   loginTab.classList.add("text-[#8B4A0E]");
 }
-  }
 
-  function openPopup() {
-    const popup = document.getElementById("popup");
-    const box = document.getElementById("popupBox");
-    const tick = document.querySelector("#tick path");
+function openPopup() {
+  const popup = document.getElementById("popup");
+  const box = document.getElementById("popupBox");
+  const tick = document.getElementById("tick");
 
-    popup.classList.remove("opacity-0", "pointer-events-none");
-    box.classList.remove("scale-90");
+  popup.classList.remove("opacity-0", "pointer-events-none");
+  box.classList.remove("scale-90");
 
-    setTimeout(() => {
-      tick.style.transition = "stroke-dashoffset 0.6s ease";
-      tick.style.strokeDashoffset = "0";
-    }, 300);
+  setTimeout(() => {
+    tick.style.transition = "stroke-dashoffset 0.6s ease";
+    tick.style.strokeDashoffset = "0";
+  }, 300);
 
-    setTimeout(() => {
-      window.location.href = "home.html";
-    }, 2000);
-  }
+  setTimeout(() => {
+    window.location.href = "home.html";
+  }, 2000);
+}
+
 </script>
 
 </body>
