@@ -1,191 +1,324 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Favourite</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Coffee Shop UI - Gemini Edition</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #FDF1DC;
+            --card-bg: #FFFFFF;
+            --accent-brown: #8D511A;
+            --text-main: #5C3D2E;
+            --text-light: #A89083;
+        }
 
-  <script src="https://cdn.tailwindcss.com"></script>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Poppins', sans-serif;
+        }
 
-  <style>
-    body {
-      font-family: 'Inter', sans-serif;
-    }
-  </style>
+        body {
+            background-color: var(--bg-color);
+            padding-bottom: 80px; /* Space for Bottom Nav */
+        }
+
+        /* --- MAIN SCREEN STYLES --- */
+        .container {
+            padding: 20px;
+            max-width: 500px;
+            margin: auto;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 25px;
+            margin-top: 10px;
+        }
+
+        .header h1 {
+            font-size: 1.4rem;
+            color: var(--text-main);
+            line-height: 1.2;
+            max-width: 70%;
+        }
+
+        .header-icons i {
+            font-size: 1.3rem;
+            color: var(--text-main);
+            margin-left: 15px;
+        }
+
+        /* --- DRINK GRID --- */
+        .drink-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 15px;
+        }
+
+        .drink-card {
+            background: var(--card-bg);
+            border-radius: 20px;
+            padding: 10px;
+            position: relative;
+            text-decoration: none;
+            color: inherit;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+        }
+
+        .drink-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .drink-card img {
+            width: 100%;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 15px;
+        }
+
+        .drink-card h3 {
+            font-size: 0.9rem;
+            margin: 10px 0 5px;
+            color: var(--text-main);
+        }
+
+        .drink-card .price {
+            font-weight: 600;
+            color: var(--accent-brown);
+            font-size: 0.9rem;
+        }
+
+        .heart-tag {
+            position: absolute;
+            bottom: 12px;
+            right: 12px;
+            color: #E74C3C;
+        }
+
+        /* --- BOTTOM NAVIGATION --- */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100%;
+            max-width: 500px;
+            background: var(--accent-brown);
+            display: flex;
+            justify-content: space-around;
+            padding: 15px 0;
+            border-radius: 25px 25px 0 0;
+        }
+
+        .nav-item {
+            text-align: center;
+            color: rgba(255,255,255,0.6);
+            font-size: 0.7rem;
+            text-decoration: none;
+        }
+
+        .nav-item.active { color: #FFF; }
+        .nav-item i { font-size: 1.2rem; display: block; margin-bottom: 4px; }
+
+        /* --- MODAL / POPUP LOGIC --- */
+        .modal-overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.3);
+            backdrop-filter: blur(10px); /* 💥 Blur Effect */
+            -webkit-backdrop-filter: blur(10px);
+            z-index: 2000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+        }
+
+        /* Logic to show modal when target is active */
+        .modal-overlay:target {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        .modal-content {
+            background: rgba(255, 255, 255, 0.8);
+            width: 90%;
+            max-width: 350px;
+            border-radius: 30px;
+            padding: 20px;
+            position: relative;
+            transform: scale(0.8);
+            transition: transform 0.3s ease;
+        }
+
+        .modal-overlay:target .modal-content {
+            transform: scale(1);
+        }
+
+        .modal-img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+            border-radius: 25px;
+            margin-bottom: 15px;
+        }
+
+        .modal-close {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            color: white;
+            font-size: 1.5rem;
+            text-decoration: none;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.5);
+        }
+
+        .modal-fav {
+            position: absolute;
+            top: 30px;
+            right: 30px;
+            color: white;
+            font-size: 1.5rem;
+        }
+
+        .modal-title { font-size: 1.3rem; color: var(--accent-brown); }
+        .modal-desc { color: #777; font-size: 0.85rem; margin: 8px 0; }
+        .modal-price { font-weight: 600; font-size: 1.2rem; color: var(--accent-brown); }
+
+        .modal-footer {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-top: 20px;
+        }
+
+        .qty-btn {
+            background: var(--accent-brown);
+            color: white;
+            padding: 8px 15px;
+            border-radius: 10px;
+            display: flex;
+            gap: 15px;
+            font-weight: 600;
+        }
+
+        .buy-btn {
+            background: var(--accent-brown);
+            color: white;
+            border: none;
+            padding: 12px 30px;
+            border-radius: 12px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+    </style>
 </head>
+<body>
 
-<body class="bg-[#FCF2D9] text-[#834D1E]">
+    <div class="container">
+        <div class="header">
+            <h1>Your favorite drinks to lighten up your day</h1>
+            <div class="header-icons">
+                <i class="fa-solid fa-bell"></i>
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
 
-<!-- HEADER -->
-<div class="px-5 pt-6">
-  <div class="flex justify-between items-center">
-    <h1 class="text-lg font-semibold">Favourite</h1>
+        <div class="drink-grid">
+            
+            <a href="#popup1" class="drink-card">
+                <img src="https://images.unsplash.com/photo-1517701604599-bb28b3650422?q=80&w=500" alt="Coffee">
+                <h3>Iced Coffee Sweet Heaven</h3>
+                <p class="price">Rp 24.000</p>
+                <div class="heart-tag"><i class="fa-solid fa-heart"></i></div>
+            </a>
 
-    <div class="flex gap-4 text-xl">
-      <span><img src="Notification.png" class="w-8 h-8"/></span>
-      <span onclick="openNav()" class="cursor-pointer">
-        <img src="Menu.png" class="w-7 h-7">
-      </span>
-    </div>
-  </div>
-</div>
+            <a href="#popup2" class="drink-card">
+                <img src="https://images.unsplash.com/photo-1544787210-2213d84ad960?q=80&w=500" alt="Chocolate">
+                <h3>Iced Chocolate</h3>
+                <p class="price">Rp 22.000</p>
+                <div class="heart-tag"><i class="fa-solid fa-heart"></i></div>
+            </a>
 
-<!-- TITLE -->
-<div class="px-5 mt-4">
-  <h1 class="text-xl font-semibold leading-snug">
-    Your favorite drinks to<br>lighten up your day
-  </h1>
-</div>
+            <a href="#" class="drink-card">
+                <img src="https://images.unsplash.com/photo-1513558161293-cdaf765ed2fd?q=80&w=500" alt="Lemonade">
+                <h3>Iced Lemonade</h3>
+                <p class="price">Rp 18.000</p>
+                <div class="heart-tag"><i class="fa-solid fa-heart"></i></div>
+            </a>
 
-<!-- GRID -->
-<div class="px-5 mt-5 pb-24">
-  <div class="grid grid-cols-2 gap-4">
-
-    <!-- CARD 1 -->
-    <div class="relative rounded-2xl overflow-hidden">
-      <img src="Iced.png" class="w-full h-52 object-cover">
-      <div class="absolute inset-0 bg-black/30"></div>
-
-      <div class="absolute bottom-3 left-3 text-white">
-        <h3 class="font-semibold leading-tight">Iced Coffee<br>Sweet Heaven</h3>
-        <p class="text-sm mt-1">Rp 24.000</p>
-      </div>
-
-      <img src="Heart.png" 
-     class="absolute bottom-3 right-3 w-7 h-7 bg-white/80 p-1 rounded-full shadow"/>
-    </div>
-
-    <!-- CARD 2 -->
-    <div class="relative rounded-2xl overflow-hidden">
-      <img src="Ch1.png" class="w-full h-52 object-cover">
-      <div class="absolute inset-0 bg-black/30"></div>
-
-      <div class="absolute bottom-3 left-3 text-white">
-        <h3 class="font-semibold">Iced Chocolate</h3>
-        <p class="text-sm mt-1">Rp 22.000</p>
-      </div>
-
-      <img src="Heart.png" 
-     class="absolute bottom-3 right-3 w-7 h-7 bg-white/80 p-1 rounded-full shadow"/>
+            <a href="#" class="drink-card">
+                <img src="https://images.unsplash.com/photo-1572442388796-11668a67e53d?q=80&w=500" alt="Cappucino">
+                <h3>Hot Cappucino</h3>
+                <p class="price">Rp 24.000</p>
+                <div class="heart-tag"><i class="fa-solid fa-heart"></i></div>
+            </a>
+        </div>
     </div>
 
-    <!-- CARD 3 -->
-    <div class="relative rounded-2xl overflow-hidden">
-      <img src="Lem1.png" class="w-full h-52 object-cover">
-      <div class="absolute inset-0 bg-black/30"></div>
-
-      <div class="absolute bottom-3 left-3 text-white">
-        <h3 class="font-semibold">Iced Lemonade</h3>
-        <p class="text-sm mt-1">Rp 18.000</p>
-      </div>
-
-      <img src="Heart.png" 
-     class="absolute bottom-3 right-3 w-7 h-7 bg-white/80 p-1 rounded-full shadow"/>
+    <div class="bottom-nav">
+        <a href="#" class="nav-item active"><i class="fa-solid fa-house"></i>Home</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-mug-hot"></i>Drink Menu</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-file-invoice"></i>Your Order</a>
+        <a href="#" class="nav-item"><i class="fa-solid fa-heart"></i>Favorites</a>
     </div>
 
-    <!-- CARD 4 -->
-    <div class="relative rounded-2xl overflow-hidden">
-      <img src="Hot.png" class="w-full h-52 object-cover">
-      <div class="absolute inset-0 bg-black/30"></div>
+    <div id="popup1" class="modal-overlay">
+        <div class="modal-content">
+            <a href="#" class="modal-close"><i class="fa-solid fa-xmark"></i></a>
+            <div class="modal-fav"><i class="fa-regular fa-heart"></i></div>
+            
+            <img src="https://images.unsplash.com/photo-1517701604599-bb28b3650422?q=80&w=500" class="modal-img">
+            
+            <h2 class="modal-title">Iced Coffee Sweet Heaven</h2>
+            <p class="modal-desc">Double espresso with condensed milk, served cold</p>
+            <p class="modal-price">Rp 24.000</p>
 
-      <div class="absolute bottom-3 left-3 text-white">
-        <h3 class="font-semibold">Hot Cappuccino</h3>
-        <p class="text-sm mt-1">Rp 24.000</p>
-      </div>
-
-      <img src="Heart.png" 
-     class="absolute bottom-3 right-3 w-7 h-7 bg-white/80 p-1 rounded-full shadow"/>
+            <div class="modal-footer">
+                <div class="qty-btn">
+                    <span>-</span> <span>1</span> <span>+</span>
+                </div>
+                <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+        </div>
     </div>
 
-    <!-- CARD 5 -->
-    <div class="relative rounded-2xl overflow-hidden">
-      <img src="Iced1.png" class="w-full h-52 object-cover">
-      <div class="absolute inset-0 bg-black/30"></div>
+    <div id="popup2" class="modal-overlay">
+        <div class="modal-content">
+            <a href="#" class="modal-close"><i class="fa-solid fa-xmark"></i></a>
+            <div class="modal-fav"><i class="fa-regular fa-heart"></i></div>
+            
+            <img src="https://images.unsplash.com/photo-1544787210-2213d84ad960?q=80&w=500" class="modal-img">
+            
+            <h2 class="modal-title">Iced Chocolate</h2>
+            <p class="modal-desc">Creamy cocoa blend with whipped cream on top</p>
+            <p class="modal-price">Rp 22.000</p>
 
-      <div class="absolute bottom-3 left-3 text-white">
-        <h3 class="font-semibold leading-tight">Iced Coffee<br>Lemonade</h3>
-        <p class="text-sm mt-1">Rp 25.000</p>
-      </div>
-
-      <img src="Heart.png" 
-     class="absolute bottom-3 right-3 w-7 h-7 bg-white/80 p-1 rounded-full shadow"/>
+            <div class="modal-footer">
+                <div class="qty-btn">
+                    <span>-</span> <span>1</span> <span>+</span>
+                </div>
+                <a href="#" class="buy-btn">Buy Now</a>
+            </div>
+        </div>
     </div>
-
-  </div>
-</div>
-
-<!-- BOTTOM NAV -->
-<div class="fixed bottom-0 w-full bg-[#834D1E] text-[#FCF2D9] flex justify-around py-3 text-xs">
-
-  <div class="flex flex-col items-center opacity-70"
-    onclick="window.location.href='home.html'">
-    <img src="Home.png" class="w-8 h-8"/>
-    <p>Home</p>
-  </div>
-
-  <div class="flex flex-col items-center opacity-70"
-    onclick="window.location.href='menu.html'">
-    <img src="Coffee.png" class="w-8 h-8"/>
-    <p>Drink Menu</p>
-  </div>
-
-  <div class="flex flex-col items-center opacity-70"
-    onclick="window.location.href='yourorder.html'">
-    <img src="Yourorder.png" class="w-8 h-8"/>
-    <p>Your Order</p>
-  </div>
-
-  <!-- ACTIVE TAB -->
-  <div class="flex flex-col items-center">
-    <img src="Favourite1.png" class="w-8 h-8"/>
-    <p>Favourite</p>
-  </div>
-
-</div>
-
-<!-- SIDE NAV -->
-<div id="sideNav" class="fixed top-0 left-0 h-full w-[75%] max-w-[300px] bg-[#FCF2D9] z-[9999] transform -translate-x-full transition-all duration-500 rounded-r-[40px] shadow-xl p-5">
-
-  <div class="flex items-center gap-3 mb-6">
-    <img src="Photo.png" class="w-12 h-12 rounded-full"/>
-    <h2 class="text-lg font-semibold text-[#834D1E]">Profile</h2>
-  </div>
-
-  <hr class="border-[#834D1E]/30 mb-4">
-
-  <div class="space-y-6 text-[#834D1E]">
-    <div class="flex items-center gap-4 text-lg">
-      <img src="Settings.png" class="w-8 h-8"/>
-      <p>Settings</p>
-    </div>
-
-    <div class="flex items-center gap-4 text-lg">
-      <img src="Help.png" class="w-8 h-8"/>
-      <p>Help</p>
-    </div>
-
-    <div class="flex items-center gap-4 text-lg">
-      <img src="Logout.png" class="w-8 h-8"/>
-      <p>Logout</p>
-    </div>
-  </div>
-</div>
-
-<!-- OVERLAY -->
-<div id="overlay" onclick="closeNav()" class="fixed inset-0 bg-black/30 z-[9998] hidden"></div>
-
-<script>
-function openNav() {
-  document.getElementById("sideNav").classList.remove("-translate-x-full");
-  document.getElementById("overlay").classList.remove("hidden");
-}
-
-function closeNav() {
-  document.getElementById("sideNav").classList.add("-translate-x-full");
-  document.getElementById("overlay").classList.add("hidden");
-}
-</script>
 
 </body>
 </html>
