@@ -24,7 +24,7 @@
 
     <div class="flex gap-4 text-xl">
       <span>🔔</span>
-      <span class="cursor-pointer">≡</span>
+      <span onclick="openNav()" class="cursor-pointer">≡</span>
     </div>
   </div>
 </div>
@@ -154,6 +154,54 @@
   </div>
 
 </div>
+  <!-- SIDE NAV -->
+<div id="sideNav" class="fixed top-0 left-0 h-full w-[75%] max-w-[300px] bg-[#FCF2D9] z-[9999] transform -translate-x-full transition-all duration-500 rounded-r-[40px] shadow-xl p-5">
+
+  <!-- PROFILE -->
+  <div class="flex items-center gap-3 mb-6">
+    <img src="photo.png" class="w-12 h-12 rounded-full object-cover"/>
+    <h2 class="text-lg font-semibold text-[#834D1E]">Profile</h2>
+  </div>
+
+  <hr class="border-[#834D1E]/30 mb-4">
+
+  <!-- MENU ITEMS -->
+  <div class="space-y-6 text-[#834D1E]">
+
+    <div class="flex items-center gap-4 text-lg">
+      <span>⚙️</span>
+      <p>Settings</p>
+    </div>
+
+    <div class="flex items-center gap-4 text-lg">
+      <span>❓</span>
+      <p>Help</p>
+    </div>
+
+    <div class="flex items-center gap-4 text-lg">
+      <span>🚪</span>
+      <p>Logout</p>
+    </div>
+
+  </div>
+
+</div>
+
+<!-- OVERLAY -->
+<div id="overlay" onclick="closeNav()" class="fixed inset-0 bg-black/30 z-[9998] hidden"></div>
+
+  <script>
+function openNav() {
+  document.getElementById("sideNav").classList.remove("-translate-x-full");
+  document.getElementById("overlay").classList.remove("hidden");
+}
+
+function closeNav() {
+  document.getElementById("sideNav").classList.add("-translate-x-full");
+  document.getElementById("overlay").classList.add("hidden");
+}
+  </script>
+  <script>
 
 <!-- SCRIPT -->
 <script>
