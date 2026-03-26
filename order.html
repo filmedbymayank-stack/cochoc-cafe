@@ -2,61 +2,80 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Your Order</title>
+
 <script src="https://cdn.tailwindcss.com"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+<style>
+body {
+  font-family: 'Inter', sans-serif;
+}
+</style>
+
 </head>
 
-<body class="bg-[#FCF2D9] text-[#834D1E]">
+<body class="bg-[#F5E6C8] text-[#6B3E1D]">
 
-<div class="p-5 pb-28">
+<!-- TOP BAR -->
+<div class="h-10 bg-[#6B2D0C]"></div>
 
-  <!-- YOUR ORDER -->
-  <h2 class="text-lg font-semibold mb-3">Your order:</h2>
+<div class="px-5 pt-4 pb-28">
 
+  <!-- TITLE -->
+  <h2 class="text-[18px] font-semibold mb-3">Your order:</h2>
+
+  <!-- ORDER ITEM -->
   <div class="flex justify-between items-start">
     <div>
-      <p class="text-sm">
-        <span id="qty">1x</span> 
+      <p class="text-[14px]">
+        <span id="qty">1x</span>
         <span id="title">Iced Coffee Sweet Heaven</span>
       </p>
-      <p id="price" class="mt-1">Rp 24.000</p>
+      <p id="price" class="text-[14px] mt-1">Rp 24.000</p>
     </div>
 
-    <button class="text-sm">Edit</button>
+    <button class="text-[13px] opacity-80">Edit</button>
   </div>
 
-  <hr class="my-4 border-[#834D1E]/30">
+  <!-- DIVIDER -->
+  <div class="border-b border-[#6B3E1D]/30 my-4"></div>
 
   <!-- RECOMMENDED -->
   <div class="flex justify-between items-center mb-3">
-    <h3 class="font-semibold">Other drinks we recommend</h3>
-    <p class="text-sm">See all</p>
+    <h3 class="text-[15px] font-semibold">Other drinks we recommend</h3>
+    <span class="text-[13px] opacity-80">See all</span>
   </div>
 
   <div class="grid grid-cols-2 gap-3">
 
-    <div class="relative rounded-xl overflow-hidden">
-      <img src="Iced.png" class="h-24 w-full object-cover">
+    <!-- CARD -->
+    <div class="relative rounded-xl overflow-hidden shadow-sm">
+      <img src="Iced.png" class="w-full h-[90px] object-cover">
       <div class="absolute inset-0 bg-black/30"></div>
-      <div class="absolute bottom-2 left-2 text-white text-sm">
+
+      <div class="absolute bottom-2 left-2 text-white text-[12px] leading-tight">
         <p>Iced Yin & Yang</p>
-        <p>Rp 23.000</p>
+        <p class="text-[11px]">Rp 23.000</p>
       </div>
     </div>
 
-    <div class="relative rounded-xl overflow-hidden">
-      <img src="Lem1.png" class="h-24 w-full object-cover">
+    <!-- CARD -->
+    <div class="relative rounded-xl overflow-hidden shadow-sm">
+      <img src="Lem1.png" class="w-full h-[90px] object-cover">
       <div class="absolute inset-0 bg-black/30"></div>
-      <div class="absolute bottom-2 left-2 text-white text-sm">
+
+      <div class="absolute bottom-2 left-2 text-white text-[12px] leading-tight">
         <p>Iced Strawberry Lemonade</p>
-        <p>Rp 18.500</p>
+        <p class="text-[11px]">Rp 18.500</p>
       </div>
     </div>
 
   </div>
 
   <!-- BILL -->
-  <div class="mt-5 space-y-2 text-sm">
+  <div class="mt-5 text-[14px] space-y-2">
 
     <div class="flex justify-between">
       <span>Subtotal</span>
@@ -78,33 +97,38 @@
       <span>Rp 0</span>
     </div>
 
-    <div class="flex justify-between font-semibold text-base pt-2">
+    <div class="flex justify-between font-semibold mt-2">
       <span>TOTAL</span>
       <span id="total">Rp 32.000</span>
     </div>
 
   </div>
 
-  <hr class="my-5 border-[#834D1E]/30">
+  <!-- DIVIDER -->
+  <div class="border-b border-[#6B3E1D]/30 my-5"></div>
 
   <!-- TABLE -->
   <div>
-    <p class="font-semibold mb-2">📍 Table no.</p>
-    <input type="text" 
-      class="w-full p-3 rounded-lg border border-[#834D1E]/40 bg-transparent outline-none">
+    <div class="flex items-center gap-2 mb-2">
+      <span class="text-red-500 text-[16px]">📍</span>
+      <p class="font-semibold text-[15px]">Table no.</p>
+    </div>
+
+    <input type="text"
+      class="w-full h-[44px] px-3 rounded-lg border border-[#6B3E1D]/40 bg-transparent outline-none">
   </div>
 
   <!-- WALLET -->
   <div class="mt-6">
-    <h3 class="font-semibold">CC-Wallet</h3>
+    <h3 class="font-semibold text-[16px] mb-2">CC-Wallet</h3>
 
-    <div class="flex justify-between items-center mt-2">
+    <div class="flex justify-between items-center">
       <div>
-        <p>Balance: Rp 90.000</p>
-        <p class="text-xs opacity-70">Add balance</p>
+        <p class="text-[14px]">Balance: Rp 90.000</p>
+        <p class="text-[12px] opacity-60">Add balance</p>
       </div>
 
-      <button class="bg-[#834D1E] text-white px-4 py-2 rounded-lg text-sm">
+      <button class="bg-[#6B2D0C] text-white px-5 py-2 rounded-lg text-[13px]">
         Use Promo
       </button>
     </div>
@@ -113,13 +137,13 @@
 </div>
 
 <!-- BOTTOM BUTTONS -->
-<div class="fixed bottom-0 w-full bg-[#FCF2D9] p-4 flex gap-3">
+<div class="fixed bottom-0 w-full bg-[#F5E6C8] px-5 py-4 flex gap-3">
 
-  <button class="flex-1 border border-[#834D1E] py-3 rounded-xl">
+  <button class="flex-1 border border-[#6B3E1D] py-3 rounded-xl text-[14px]">
     Cancel
   </button>
 
-  <button class="flex-1 bg-[#834D1E] text-white py-3 rounded-xl">
+  <button class="flex-1 bg-[#6B2D0C] text-white py-3 rounded-xl text-[14px]">
     Proceed Payment
   </button>
 
@@ -133,7 +157,6 @@ if (data) {
   document.getElementById("price").innerText = data.price;
   document.getElementById("subtotal").innerText = data.price;
 
-  // simple total calc
   let base = parseInt(data.price.replace(/[^0-9]/g, ""));
   let total = base + 3000 + 5000;
 
