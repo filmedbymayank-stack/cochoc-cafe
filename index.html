@@ -65,23 +65,46 @@
 
   <section id="loginSection" class="relative flex justify-center -mt-56 z-20 opacity-0 translate-y-10 transition-all duration-700">
 
-    <div class="w-[260px] h-[380px] bg-[#FCF2D9] border-2 border-[#834D1E] rounded-3xl p-4 shadow-xl">
+    <div class="w-[320px] mx-auto mt-10 p-6 
+bg-[#F3E6C9] 
+border-2 border-[#8B5A2B] 
+rounded-[40px] 
+shadow-lg">
 
-      <!-- Tabs -->
-      <div class="flex border-2 border-[#834D1E] rounded-full overflow-hidden mb-5 font-[Inter]">
-        
-        <button onclick="showLogin()" id="loginTab"
-          class="w-1/2 text-[11px] font-semibold py-2 bg-[#834D1E] text-[#FCF2D9]">
-          Login
-        </button>
+  <!-- Tabs -->
+  <div class="flex mb-6 bg-[#E8D7B5] rounded-full overflow-hidden border border-[#8B5A2B]">
+    <button class="w-1/2 py-2 bg-[#8B4A0E] text-white rounded-full">
+      Login
+    </button>
+    <button class="w-1/2 py-2 text-[#8B4A0E]">
+      Sign Up
+    </button>
+  </div>
 
-        <button onclick="showSignup()" id="signupTab"
-          class="w-1/2 text-[11px] font-semibold py-2 bg-[#FCF2D9] text-[#834D1E]">
-          Sign Up
-        </button>
+  <!-- Input -->
+  <input 
+    type="text" 
+    placeholder="Username or email"
+    class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-6 pb-2 outline-none placeholder-[#8B5A2B]"
+  />
 
-      </div>
+  <input 
+    type="password" 
+    placeholder="Password"
+    class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-2 pb-2 outline-none placeholder-[#8B5A2B]"
+  />
 
+  <!-- Forgot -->
+  <div class="text-right text-sm text-[#8B5A2B] mb-6">
+    Forgot password?
+  </div>
+
+  <!-- Button -->
+  <button class="w-full py-3 bg-[#8B4A0E] text-white rounded-full text-lg">
+    Login
+  </button>
+
+    </div>
       <!-- LOGIN -->
       <div id="loginForm">
         <input type="text" placeholder="Username or email"
