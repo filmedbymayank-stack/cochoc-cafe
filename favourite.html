@@ -12,6 +12,20 @@
     body {
       font-family: 'Inter', sans-serif;
     }
+    @keyframes scaleUp {
+  0% {
+    transform: scale(0.8);
+    opacity: 0;
+  }
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.animate-scaleUp {
+  animation: scaleUp 0.3s ease;
+}
   </style>
 </head>
 
@@ -195,7 +209,47 @@ function closeNav() {
   document.getElementById("sideNav").classList.add("-translate-x-full");
   document.getElementById("overlay").classList.add("hidden");
 }
+  function openModal(img, title, desc, price) {
+  document.getElementById("modal").classList.remove("hidden");
+  document.getElementById("modal").classList.add("flex");
+
+  document.getElementById("modalImg").src = img;
+  document.getElementById("modalTitle").innerText = title;
+  document.getElementById("modalDesc").innerText = desc;
+  document.getElementById("modalPrice").innerText = price;
+}
+
+function closeModal() {
+  document.getElementById("modal").classList.add("hidden");
+}
 </script>
+  <!-- MODAL -->
+<div id="modal" class="fixed inset-0 bg-black/60 z-[9999] hidden items-center justify-center">
+
+  <div class="bg-[#FCF2D9] w-[90%] max-w-md rounded-[30px] overflow-hidden relative animate-scaleUp">
+
+    <!-- CLOSE -->
+    <button onclick="closeModal()" 
+      class="absolute top-4 left-4 text-xl font-bold text-[#834D1E]">✕</button>
+
+    <!-- IMAGE -->
+    <img id="modalImg" src="" class="w-full h-64 object-cover">
+
+    <!-- CONTENT -->
+    <div class="p-5 text-[#834D1E]">
+      <h2 id="modalTitle" class="text-lg font-semibold"></h2>
+      <p id="modalDesc" class="text-sm mt-2 opacity-80"></p>
+
+      <p id="modalPrice" class="text-xl font-bold mt-4"></p>
+
+      <!-- BUTTON -->
+      <button class="w-full mt-5 bg-[#834D1E] text-white py-3 rounded-xl">
+        Buy Now
+      </button>
+    </div>
+
+  </div>
+</div>
 
 </body>
 </html>
