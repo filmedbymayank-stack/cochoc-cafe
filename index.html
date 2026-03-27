@@ -14,144 +14,85 @@
     body {
       font-family: 'Raleway', sans-serif;
     }
+
+    /* Initial hero animation */
+    .hero-enter {
+      opacity: 0;
+      transform: translateY(20px);
+      animation: fadeUp 0.8s ease forwards;
+    }
+    @keyframes fadeUp {
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    /* Small state for Co/Choc on scroll */
+    .small-state .coch-title {
+      font-size: 25px;
+      line-height: 1.2;
+      letter-spacing: 1px;
+    }
+    .small-state .coch-line {
+      height: 2px;
+    }
+
+    /* Login card animation when appearing from hero */
+    .login-appear {
+      transform: translateY(20px);
+      opacity: 0;
+      transition: all 0.6s ease;
+    }
+    .login-appear.visible {
+      transform: translateY(0);
+      opacity: 1;
+    }
+
   </style>
 </head>
 
-<body class="bg-[#f5e6d3] overflow-x-hidden relative">
+<body class="bg-[#f5e6d3] overflow-x-hidden">
 
-<!-- HERO -->
-<section class="relative h-[85vh] flex items-center justify-center text-center overflow-hidden">
+  <!-- HERO -->
+  <section id="hero" class="relative h-[85vh] flex items-center justify-center text-center overflow-hidden bg-no-repeat bg-cover" style="background-image:url('wallpaper.png');">
+    <div class="absolute inset-0 bg-black/20"></div>
 
-  <img src="wallpaper.png" class="absolute inset-0 w-full h-full object-cover"/>
-  <div class="absolute inset-0 bg-black/20"></div>
+    <div id="heroContent" class="relative z-10">
+      <h1 id="coChoc" class="text-[40px] font-bold tracking-[6px] text-black hero-enter coch-title">
+        Co / Choc
+      </h1>
 
-  <div class="relative z-10">
-    <h1 class="text-[40px] font-bold tracking-[6px] text-black">
-      Co / Choc
-    </h1>
-    <p class="text-[11px] mt-1 font-semibold">
-      A way to enjoy bitter and sweet of life
-    </p>
-  </div>
-
-</section>
-
-<!-- LOGIN -->
-<section class="-mt-40 flex justify-center">
-
-  <div class="w-[320px] p-6 
-  bg-[#F3E6C9] 
-  border-2 border-[#8B5A2B] 
-  rounded-[40px] 
-  shadow-lg">
-
-    <!-- Tabs -->
-    <div class="flex mb-6 bg-[#E8D7B5] rounded-full overflow-hidden border border-[#8B5A2B]">
-      
-      <button id="loginTab" onclick="showLogin()" 
-      class="w-1/2 py-2 bg-[#8B4A0E] text-white rounded-full">
-        Login
-      </button>
-
-      <button id="signupTab" onclick="showSignup()" 
-      class="w-1/2 py-2 text-[#8B4A0E]">
-        Sign Up
-      </button>
-
-    </div>
-
-    <!-- LOGIN FORM -->
-    <div id="loginForm">
-
-      <input type="text" placeholder="Username or email"
-      class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-6 pb-2 outline-none placeholder-[#8B5A2B]" />
-
-      <input type="password" placeholder="Password"
-      class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-2 pb-2 outline-none placeholder-[#8B5A2B]" />
-
-      <p class="text-right text-sm text-[#8B5A2B] mb-6">
-        Forgot password?
+      <p id="subtitle" class="text-[11px] mt-1 font-semibold hero-enter" style="animation-delay:.1s;">
+        A way to enjoy bitter and sweet of life
       </p>
 
-      <button onclick="openPopup()" 
-class="px-6 py-2 bg-[#8B4A0E] text-white rounded-full">
-  Login
-      </button>
-
+      <!-- decorative line under text (same color scheme) -->
+      <div id="line" class="mx-auto h-1 w-48 bg-black/70 rounded-full mt-3 hero-enter" style="width: 260px; animation-delay:.2s;"></div>
     </div>
+  </section>
 
-    <!-- SIGNUP FORM -->
-    <div id="signupForm" class="hidden">
+  <!-- LOGIN -->
+  <section id="loginSection" class="flex justify-center py-12">
+    <div id="loginCard" class="w-[320px] p-6 bg-[#F3E6C9] border-2 border-[#8B5A2B] rounded-[40px] shadow-lg login-appear">
+      <!-- Tabs -->
+      <div class="flex mb-6 bg-[#E8D7B5] rounded-full overflow-hidden border border-[#8B5A2B]">
+        <button id="loginTab" class="w-1/2 py-2 bg-[#8B4A0E] text-white rounded-full" aria-label="Login tab">
+          Login
+        </button>
 
-      <input type="email" placeholder="Email"
-      class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-4 pb-2 outline-none placeholder-[#8B5A2B]" />
-
-      <input type="password" placeholder="Password"
-      class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-4 pb-2 outline-none placeholder-[#8B5A2B]" />
-
-      <input type="password" placeholder="Confirm Password"
-      class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-6 pb-2 outline-none placeholder-[#8B5A2B]" />
-
-      <button class="w-full py-3 bg-[#8B4A0E] text-white rounded-full text-lg">
-        Sign Up
-      </button>
-
-    </div>
-
-  </div>
-
-</section>
-
-<!-- POPUP -->
-<div id="popup" class="fixed inset-0 flex items-center justify-center bg-black/30 backdrop-blur-sm opacity-0 pointer-events-none transition-all duration-500">
-
-  <div id="popupBox" class="bg-[#FCF2D9] border-2 border-[#834D1E] rounded-2xl p-6 w-[260px] text-center shadow-xl scale-90 transition-all duration-500">
-
-    <div class="flex justify-center mb-3">
-      <div class="w-12 h-12 border-2 border-[#834D1E] rounded-full flex items-center justify-center">
-        
-        <svg class="w-6 h-6 text-[#834D1E]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
-          <path id="tick" d="M5 13l4 4L19 7" stroke-dasharray="30" stroke-dashoffset="30"/>
-        </svg>
-
+        <button id="signupTab" class="w-1/2 py-2 text-[#8B4A0E]" aria-label="Sign Up tab">
+          Sign Up
+        </button>
       </div>
-    </div>
 
-    <h2 class="text-[#834D1E] font-bold text-lg mb-2">
-      You're almost there
-    </h2>
+      <!-- LOGIN FORM -->
+      <div id="loginForm" class="aria-hidden-block">
+        <label for="loginUser" class="sr-only">Username or email</label>
+        <input id="loginUser" type="text" placeholder="Username or email"
+          class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-6 pb-2 outline-none placeholder-[#8B5A2B]" />
 
-    <p class="text-[#834D1E] text-xs">
-      now let's get started
-    </p>
+        <label for="loginPass" class="sr-only">Password</label>
+        <input id="loginPass" type="password" placeholder="Password"
+          class="w-full bg-transparent border-b-2 border-[#8B5A2B] mb-2 pb-2 outline-none placeholder-[#8B5A2B]" />
 
-  </div>
+        <p class="text-right text-sm text-[#8B5A2B] mb
 
-</div>
-<!-- SCRIPT -->
-<script>
-function openPopup() {
-  const popup = document.getElementById("popup");
-  const box = document.getElementById("popupBox");
-  const tick = document.getElementById("tick");
-
-  popup.classList.remove("opacity-0", "pointer-events-none");
-  box.classList.remove("scale-90");
-
-  setTimeout(() => {
-    tick.style.transition = "stroke-dashoffset 0.6s ease";
-    tick.style.strokeDashoffset = "0";
-  }, 300);
-
-  setTimeout(() => {
-    popup.classList.add("opacity-0", "pointer-events-none");
-    box.classList.add("scale-90");
-  }, 2000);
-}
-  setTimeout(() => {
-  window.location.href = "home.html";
-}, 2000);
-</script>
-
-</body>
-</html>
+* (Incomplete: max_output_tokens)*
