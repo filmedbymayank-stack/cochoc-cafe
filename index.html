@@ -74,8 +74,8 @@
       </p>
 
       <button onclick="openPopup()" 
-      class="w-full py-3 bg-[#8B4A0E] text-white rounded-full text-lg">
-        Login
+class="px-6 py-2 bg-[#8B4A0E] text-white rounded-full">
+  Login
       </button>
 
     </div>
@@ -109,9 +109,11 @@
 
     <div class="flex justify-center mb-3">
       <div class="w-12 h-12 border-2 border-[#834D1E] rounded-full flex items-center justify-center">
+        
         <svg class="w-6 h-6 text-[#834D1E]" fill="none" stroke="currentColor" stroke-width="3" viewBox="0 0 24 24">
           <path id="tick" d="M5 13l4 4L19 7" stroke-dasharray="30" stroke-dashoffset="30"/>
         </svg>
+
       </div>
     </div>
 
@@ -124,36 +126,10 @@
     </p>
 
   </div>
-</div>
 
+</div>
 <!-- SCRIPT -->
 <script>
-
-const loginTab = document.getElementById("loginTab");
-const signupTab = document.getElementById("signupTab");
-
-function showLogin() {
-  document.getElementById("loginForm").classList.remove("hidden");
-  document.getElementById("signupForm").classList.add("hidden");
-
-  loginTab.classList.add("bg-[#8B4A0E]", "text-white");
-  loginTab.classList.remove("text-[#8B4A0E]");
-
-  signupTab.classList.remove("bg-[#8B4A0E]", "text-white");
-  signupTab.classList.add("text-[#8B4A0E]");
-}
-
-function showSignup() {
-  document.getElementById("signupForm").classList.remove("hidden");
-  document.getElementById("loginForm").classList.add("hidden");
-
-  signupTab.classList.add("bg-[#8B4A0E]", "text-white");
-  signupTab.classList.remove("text-[#8B4A0E]");
-
-  loginTab.classList.remove("bg-[#8B4A0E]", "text-white");
-  loginTab.classList.add("text-[#8B4A0E]");
-}
-
 function openPopup() {
   const popup = document.getElementById("popup");
   const box = document.getElementById("popupBox");
@@ -168,10 +144,13 @@ function openPopup() {
   }, 300);
 
   setTimeout(() => {
-    window.location.href = "home.html";
+    popup.classList.add("opacity-0", "pointer-events-none");
+    box.classList.add("scale-90");
   }, 2000);
 }
-
+  setTimeout(() => {
+  window.location.href = "home.html";
+}, 2000);
 </script>
 
 </body>
